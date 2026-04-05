@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alice Moranval-Vincent — Cavalière Professionnelle CSO</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f4f0; min-height: 100vh; }
+
+  .site { max-width: 480px; margin: 0 auto; background: #fff; min-height: 100vh; border-left: 0.5px solid #e0dfd8; border-right: 0.5px solid #e0dfd8; }
+
+  /* NAV */
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 0.5px solid #e0dfd8; background: #fff; position: sticky; top: 0; z-index: 10; }
+  .nav-logo { font-size: 16px; font-weight: 500; color: #1a1a1a; letter-spacing: -0.3px; }
+  .nav-logo span { color: #7F77DD; }
+  .nav-links { display: flex; gap: 12px; }
+  .nav-links a { font-size: 11px; color: #888780; text-decoration: none; }
+  .nav-links a:hover { color: #1a1a1a; }
+
+  /* HERO */
+  .hero { display: flex; align-items: flex-start; gap: 16px; padding: 24px 20px 20px; border-bottom: 0.5px solid #e0dfd8; }
+  .hero-avatar { width: 76px; height: 76px; border-radius: 50%; background: #AFA9EC; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 500; color: #26215C; flex-shrink: 0; }
+  .hero-name { font-size: 19px; font-weight: 500; color: #1a1a1a; margin-bottom: 2px; }
+  .hero-title { font-size: 13px; color: #888780; margin-bottom: 10px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
+  .tag { font-size: 11px; padding: 3px 9px; border-radius: 6px; }
+  .tag-purple { background: #EEEDFE; color: #3C3489; border: 0.5px solid #AFA9EC; }
+  .tag-amber  { background: #FAEEDA; color: #633806; border: 0.5px solid #EF9F27; }
+  .tag-teal   { background: #E1F5EE; color: #085041; border: 0.5px solid #5DCAA5; }
+  .tag-gray   { background: #F1EFE8; color: #444441; border: 0.5px solid #B4B2A9; }
+  .social-row { display: flex; gap: 7px; }
+  .social-btn { width: 30px; height: 30px; border-radius: 50%; border: 0.5px solid #e0dfd8; background: #f5f4f0; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+  .social-btn svg { width: 14px; height: 14px; }
+
+  /* HIGHLIGHT */
+  .highlight-bar { display: flex; align-items: center; gap: 8px; padding: 9px 20px; background: #EEEDFE; border-bottom: 0.5px solid #AFA9EC; }
+  .highlight-star { font-size: 13px; color: #534AB7; }
+  .highlight-text { font-size: 13px; color: #3C3489; font-weight: 500; }
+  .highlight-sub { font-size: 12px; color: #534AB7; }
+
+  /* STATS */
+  .stats-row { display: flex; border-bottom: 0.5px solid #e0dfd8; }
+  .stat { flex: 1; text-align: center; padding: 11px 4px; border-right: 0.5px solid #e0dfd8; }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 14px; font-weight: 500; color: #1a1a1a; }
+  .stat-label { font-size: 10px; color: #888780; margin-top: 2px; }
+
+  /* SECTIONS */
+  .section-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px 8px; }
+  .section-title { font-size: 14px; font-weight: 500; color: #1a1a1a; }
+  .section-more { font-size: 12px; color: #7F77DD; text-decoration: none; }
+
+  /* DIPLOMES */
+  .creds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; padding: 0 20px 16px; }
+  .cred-card { padding: 10px 12px; border-radius: 8px; border: 0.5px solid #e0dfd8; background: #fff; }
+  .cred-icon { font-size: 14px; margin-bottom: 4px; }
+  .cred-title { font-size: 12px; font-weight: 500; color: #1a1a1a; }
+  .cred-detail { font-size: 11px; color: #888780; margin-top: 1px; line-height: 1.4; }
+
+  /* PALMARES */
+  .palmares-list { padding: 0 20px 16px; display: flex; flex-direction: column; gap: 7px; }
+  .palmares-item { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 8px; border: 0.5px solid #e0dfd8; }
+  .medal { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 500; flex-shrink: 0; }
+  .gold   { background: #FAEEDA; color: #633806; }
+  .silver { background: #D3D1C7; color: #2C2C2A; }
+  .bronze { background: #F5C4B3; color: #4A1B0C; }
+  .palmares-info { flex: 1; }
+  .palmares-event { font-size: 12px; font-weight: 500; color: #1a1a1a; }
+  .palmares-detail { font-size: 10px; color: #888780; margin-top: 1px; }
+  .palmares-year { font-size: 11px; color: #888780; }
+
+  /* AGENDA */
+  .agenda-list { padding: 0 20px 16px; display: flex; flex-direction: column; gap: 7px; }
+  .agenda-item { display: flex; gap: 12px; align-items: flex-start; padding: 9px 12px; border-radius: 8px; border: 0.5px solid #e0dfd8; }
+  .agenda-date-box { text-align: center; min-width: 32px; }
+  .agenda-day { font-size: 17px; font-weight: 500; color: #534AB7; line-height: 1; }
+  .agenda-month { font-size: 9px; color: #888780; text-transform: uppercase; }
+  .agenda-event { font-size: 12px; font-weight: 500; color: #1a1a1a; }
+  .agenda-lieu { font-size: 11px; color: #888780; margin-top: 1px; }
+  .badge { font-size: 10px; padding: 2px 7px; border-radius: 6px; margin-top: 3px; display: inline-block; }
+  .badge-green { background: #E1F5EE; color: #085041; }
+  .badge-amber { background: #FAEEDA; color: #633806; }
+  .badge-coral { background: #FAECE7; color: #712B13; }
+  .badge-sold  { background: #F1EFE8; color: #5F5E5A; }
+
+  /* VENTE */
+  .vente-intro { padding: 0 20px 10px; font-size: 11px; color: #888780; line-height: 1.5; }
+  .vente-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 20px 20px; }
+  .cheval-card { border-radius: 8px; border: 0.5px solid #e0dfd8; background: #fff; overflow: hidden; }
+  .cheval-photo { height: 80px; background: #f5f4f0; display: flex; align-items: center; justify-content: center; font-size: 28px; border-bottom: 0.5px solid #e0dfd8; position: relative; }
+  .cheval-dispo { position: absolute; top: 6px; right: 6px; font-size: 9px; padding: 2px 6px; border-radius: 6px; }
+  .cheval-body { padding: 8px 10px 10px; }
+  .cheval-nom { font-size: 12px; font-weight: 500; color: #1a1a1a; margin-bottom: 2px; }
+  .cheval-specs { font-size: 10px; color: #888780; line-height: 1.5; }
+  .cheval-prix { font-size: 13px; font-weight: 500; color: #534AB7; margin-top: 6px; }
+  .cheval-contact { display: block; margin-top: 6px; font-size: 10px; text-align: center; padding: 5px 0; border-radius: 6px; border: 0.5px solid #AFA9EC; color: #3C3489; background: #EEEDFE; text-decoration: none; cursor: pointer; }
+  .cheval-contact:hover { background: #CECBF6; }
+
+  /* FEED */
+  .feed-section { border-top: 0.5px solid #e0dfd8; }
+  .feed-tabs { display: flex; border-bottom: 0.5px solid #e0dfd8; padding: 0 20px; }
+  .feed-tab { padding: 9px 12px 7px; font-size: 12px; border-bottom: 2px solid transparent; color: #888780; cursor: pointer; }
+  .feed-tab.active { border-bottom-color: #7F77DD; color: #1a1a1a; font-weight: 500; }
+  .feed-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; padding: 10px 20px 28px; }
+  .feed-card { aspect-ratio: 1; border-radius: 8px; background: #f5f4f0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 3px; position: relative; }
+  .feed-icon { font-size: 20px; }
+  .feed-label { font-size: 9px; color: #888780; }
+  .feed-source { position: absolute; top: 5px; right: 5px; width: 13px; height: 13px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .src-ig { background: #d62976; }
+  .src-fb { background: #1877F2; }
+  .src-yt { background: #FF0000; }
+  .src-dot { width: 6px; height: 6px; border-radius: 50%; background: white; }
+
+  /* FOOTER */
+  footer { border-top: 0.5px solid #e0dfd8; padding: 20px; text-align: center; }
+  footer p { font-size: 11px; color: #888780; margin-bottom: 6px; }
+  .footer-contact { display: inline-block; font-size: 12px; padding: 8px 20px; border-radius: 6px; background: #7F77DD; color: #fff; text-decoration: none; }
+  .footer-contact:hover { background: #534AB7; }
+
+  @media (max-width: 480px) {
+    .site { border: none; }
+    .nav-links { gap: 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="site">
+
+  <nav>
+    <div class="nav-logo">Alice <span>·</span> Moranval</div>
+    <div class="nav-links">
+      <a href="#palmares">Palmarès</a>
+      <a href="#agenda">Agenda</a>
+      <a href="#vente">Vente</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-avatar">AM</div>
+    <div>
+      <div class="hero-name">Alice Moranval-Vincent</div>
+      <div class="hero-title">Cavalière Professionnelle · CSO</div>
+      <div class="tags">
+        <span class="tag tag-purple">CSI 3★★★</span>
+        <span class="tag tag-amber">1m40 Fontainebleau</span>
+        <span class="tag tag-teal">DEJEPS Coach</span>
+        <span class="tag tag-gray">Jeunes Chevaux</span>
+        <span class="tag tag-gray">Permis PL</span>
+      </div>
+      <div class="social-row">
+        <a href="#" class="social-btn" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#d62976" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#d62976" stroke="none"/></svg>
+        </a>
+        <a href="#" class="social-btn" title="Facebook">
+          <svg viewBox="0 0 24 24" fill="#1877F2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="#" class="social-btn" title="YouTube">
+          <svg viewBox="0 0 24 24" fill="#FF0000"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-bar">
+    <div class="highlight-star">★★★</div>
+    <div class="highlight-text">CSI 3★★★ · 1m40</div>
+    <div class="highlight-sub">— Fontainebleau</div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat"><div class="stat-num">CSI 3★</div><div class="stat-label">International</div></div>
+    <div class="stat"><div class="stat-num">1m40</div><div class="stat-label">Hauteur max</div></div>
+    <div class="stat"><div class="stat-num">DEJEPS</div><div class="stat-label">Coaching</div></div>
+    <div class="stat"><div class="stat-num">PL</div><div class="stat-label">Transport</div></div>
+  </div>
+
+  <div class="section-header"><div class="section-title">Qualifications & diplômes</div></div>
+  <div class="creds-grid">
+    <div class="cred-card"><div class="cred-icon">🎓</div><div class="cred-title">DEJEPS</div><div class="cred-detail">Perfectionnement sportif · Coaching équestre</div></div>
+    <div class="cred-card"><div class="cred-icon">🐴</div><div class="cred-title">Jeunes chevaux</div><div class="cred-detail">Formation & débourrage</div></div>
+    <div class="cred-card"><div class="cred-icon">🚛</div><div class="cred-title">Permis PL</div><div class="cred-detail">Transport de chevaux en autonomie</div></div>
+    <div class="cred-card"><div class="cred-icon">🏟️</div><div class="cred-title">CSI 3★★★</div><div class="cred-detail">Concours de saut international</div></div>
+  </div>
+
+  <div id="palmares" class="section-header"><div class="section-title">Palmarès</div></div>
+  <div class="palmares-list">
+    <div class="palmares-item">
+      <div class="medal gold">1er</div>
+      <div class="palmares-info"><div class="palmares-event">CSI 3★ — Grand Prix Fontainebleau</div><div class="palmares-detail">1m40 · Seine-et-Marne</div></div>
+      <div class="palmares-year">2024</div>
+    </div>
+    <div class="palmares-item">
+      <div class="medal silver">2e</div>
+      <div class="palmares-info"><div class="palmares-event">Championnat de France Amateur Elite</div><div class="palmares-detail">1m35 · Lamotte-Beuvron</div></div>
+      <div class="palmares-year">2023</div>
+    </div>
+    <div class="palmares-item">
+      <div class="medal bronze">3e</div>
+      <div class="palmares-info"><div class="palmares-event">Grand Prix Régional PACA</div><div class="palmares-detail">1m30 · Marseille</div></div>
+      <div class="palmares-year">2023</div>
+    </div>
+  </div>
+
+  <div id="agenda" class="section-header"><div class="section-title">Agenda des compétitions</div></div>
+  <div class="agenda-list">
+    <div class="agenda-item">
+      <div class="agenda-date-box"><div class="agenda-day">12</div><div class="agenda-month">Avr</div></div>
+      <div><div class="agenda-event">CSO National — Gap</div><div class="agenda-lieu">Hautes-Alpes · 1m35</div><span class="badge badge-green">Inscrite</span></div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-date-box"><div class="agenda-day">18</div><div class="agenda-month">Mai</div></div>
+      <div><div class="agenda-event">CSI 2★ — Lyon</div><div class="agenda-lieu">Ain · 1m40</div><span class="badge badge-amber">À confirmer</span></div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-date-box"><div class="agenda-day">07</div><div class="agenda-month">Juin</div></div>
+      <div><div class="agenda-event">CSI 3★ — Fontainebleau</div><div class="agenda-lieu">Seine-et-Marne · 1m40</div><span class="badge badge-green">Qualifiée</span></div>
+    </div>
+  </div>
+
+  <div id="vente" class="section-header"><div class="section-title">Chevaux à vendre</div></div>
+  <div class="vente-intro">Chevaux sélectionnés et travaillés par Alice — garantie de sérieux et de suivi.</div>
+  <div class="vente-grid">
+    <div class="cheval-card">
+      <div class="cheval-photo">🐎<span class="cheval-dispo badge-green badge">Disponible</span></div>
+      <div class="cheval-body">
+        <div class="cheval-nom">Qualyste de Bozouls</div>
+        <div class="cheval-specs">SF · 8 ans · Hongre<br>Niveau : 1m30 CSO<br>Robe : Bai</div>
+        <div class="cheval-prix">25 000 €</div>
+        <a href="mailto:alice@example.com" class="cheval-contact">Contacter Alice</a>
+      </div>
+    </div>
+    <div class="cheval-card">
+      <div class="cheval-photo">🐎<span class="cheval-dispo badge-coral badge">Sous offre</span></div>
+      <div class="cheval-body">
+        <div class="cheval-nom">Domingo Z</div>
+        <div class="cheval-specs">ZANG · 6 ans · Entier<br>Niveau : 1m20 CSO<br>Robe : Gris</div>
+        <div class="cheval-prix">18 000 €</div>
+        <a href="mailto:alice@example.com" class="cheval-contact">Renseignements</a>
+      </div>
+    </div>
+    <div class="cheval-card">
+      <div class="cheval-photo">🐎<span class="cheval-dispo badge-green badge">Disponible</span></div>
+      <div class="cheval-body">
+        <div class="cheval-nom">Naya des Pins</div>
+        <div class="cheval-specs">SF · 5 ans · Jument<br>Jeune cheval · Débourré<br>Robe : Alezan</div>
+        <div class="cheval-prix">12 000 €</div>
+        <a href="mailto:alice@example.com" class="cheval-contact">Contacter Alice</a>
+      </div>
+    </div>
+    <div class="cheval-card">
+      <div class="cheval-photo">🐎<span class="cheval-dispo badge-sold badge">Vendu</span></div>
+      <div class="cheval-body">
+        <div class="cheval-nom">Urago de Laume</div>
+        <div class="cheval-specs">SF · 10 ans · Hongre<br>Niveau : 1m40 CSO<br>Robe : Bai brun</div>
+        <div class="cheval-prix" style="color:#888780;">Vendu</div>
+        <span class="cheval-contact" style="opacity:0.4; pointer-events:none;">Vendu</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="feed-section">
+    <div class="feed-tabs">
+      <div class="feed-tab active">Publications</div>
+      <div class="feed-tab">Vidéos & Reels</div>
+    </div>
+    <div class="feed-grid">
+      <div class="feed-card"><div class="feed-icon">🐴</div><div class="feed-label">Entraînement</div><div class="feed-source src-ig"><div class="src-dot"></div></div></div>
+      <div class="feed-card"><div class="feed-icon">🏆</div><div class="feed-label">Podium</div><div class="feed-source src-fb"><div class="src-dot"></div></div></div>
+      <div class="feed-card"><div class="feed-icon">▶</div><div class="feed-label">Reel CSI</div><div class="feed-source src-ig"><div class="src-dot"></div></div></div>
+      <div class="feed-card"><div class="feed-icon">🌄</div><div class="feed-label">Coulisses</div><div class="feed-source src-ig"><div class="src-dot"></div></div></div>
+      <div class="feed-card"><div class="feed-icon">▶</div><div class="feed-label">Parcours 1m40</div><div class="feed-source src-yt"><div class="src-dot"></div></div></div>
+      <div class="feed-card"><div class="feed-icon">🎓</div><div class="feed-label">Coaching</div><div class="feed-source src-fb"><div class="src-dot"></div></div></div>
+    </div>
+  </div>
+
+  <footer id="contact">
+    <p>Alice Moranval-Vincent · Cavalière Professionnelle CSO</p>
+    <p style="margin-bottom: 12px;">Hautes-Alpes, France</p>
+    <a href="mailto:alice.moranval@gmail.com" class="footer-contact">Envoyer un message</a>
+  </footer>
+
+</div>
+</body>
+</html>
