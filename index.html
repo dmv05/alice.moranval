@@ -3,318 +3,527 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alice Moranval-Vincent — Cavalière Professionnelle CS</title>
-<style
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #f8f7f4; color: #111; }
-.w { max-width: 900px; margin: 0 auto; background: #f8f7f4; }
+<title>Alice Moranval-Vincent — Cavalière Professionnelle CSO</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F4EE;
+    --sand: #E8E2D5;
+    --stone: #C4BAA8;
+    --bark: #8B7355;
+    --earth: #4A3728;
+    --night: #1C1410;
+    --gold: #C4923A;
+    --gold-light: #EDD898;
+    --purple: #7F77DD;
+    --purple-light: #EEEDFE;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    min-height: 100vh;
+    color: var(--night);
+  }
+  .site {
+    max-width: 480px;
+    margin: 0 auto;
+    background: #fff;
+    min-height: 100vh;
+    border-left: 1px solid var(--sand);
+    border-right: 1px solid var(--sand);
+  }
 
-nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 28px; background: #fff; border-bottom: 2px solid #111; position: sticky; top: 0; z-index: 100; flex-wrap: wrap; gap: 12px; }
-.logo { font-size: 22px; font-weight: 900; letter-spacing: -1px; color: #111; text-decoration: none; }
-.logo span { color: #2563EB; }
-.nav-links { display: flex; gap: 20px; }
-.nav-links a { font-size: 11px; font-weight: 700; color: #888; text-decoration: none; letter-spacing: 1.5px; text-transform: uppercase; }
-.nav-links a:hover { color: #111; }
-.nav-cta { font-size: 11px; font-weight: 800; padding: 9px 18px; background: #111; color: #fff; border-radius: 4px; letter-spacing: 0.5px; text-transform: uppercase; text-decoration: none; }
-.nav-cta:hover { background: #2563EB; }
+  /* NAV */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--sand);
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--earth);
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 14px; }
+  .nav-links a {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--bark);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .nav-links a:hover { color: var(--earth); }
 
-.hero { position: relative; height: 480px; background: #ddd; overflow: hidden; display: flex; align-items: flex-end; }
-.hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.75) 100%); }
-.hero-content { position: relative; z-index: 2; padding: 32px 28px; width: 100%; }
-.hero-pre { font-size: 11px; font-weight: 800; letter-spacing: 3px; color: #60a5fa; text-transform: uppercase; margin-bottom: 8px; }
-.hero-name { font-size: clamp(32px, 6vw, 52px); font-weight: 900; letter-spacing: -2px; line-height: 0.95; color: #fff; margin-bottom: 8px; }
-.hero-sub { font-size: 14px; color: rgba(255,255,255,0.65); margin-bottom: 16px; }
-.hero-badges { display: flex; gap: 6px; flex-wrap: wrap; }
-.hbadge { font-size: 10px; font-weight: 800; padding: 4px 10px; background: rgba(255,255,255,0.15); color: #fff; border-radius: 3px; letter-spacing: 0.5px; border: 1px solid rgba(255,255,255,0.25); }
+  /* HERO */
+  .hero {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px 20px 20px;
+    border-bottom: 1px solid var(--sand);
+  }
+  .hero-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 2px solid var(--gold-light);
+  }
+  .hero-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+  .hero-avatar-fallback {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold-light), var(--stone));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--earth);
+    flex-shrink: 0;
+    border: 2px solid var(--gold-light);
+  }
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    font-weight: 600;
+    color: var(--earth);
+    margin-bottom: 2px;
+    line-height: 1.2;
+  }
+  .hero-title { font-size: 12px; color: var(--bark); margin-bottom: 10px; letter-spacing: 0.3px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
+  .tag {
+    font-size: 10px;
+    font-weight: 500;
+    padding: 3px 9px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+  }
+  .tag-gold { background: #FDF5E4; color: #7A5320; border: 1px solid var(--gold-light); }
+  .tag-green { background: #EAF5EE; color: #1A5C34; border: 1px solid #8FD4A8; }
+  .tag-gray  { background: var(--cream); color: var(--earth); border: 1px solid var(--stone); }
 
-.stats-band { display: grid; grid-template-columns: repeat(4, 1fr); background: #111; }
-.sstat { padding: 16px 8px; text-align: center; border-right: 1px solid #2a2a2a; }
-.sstat:last-child { border-right: none; }
-.sstat-num { font-size: 17px; font-weight: 900; color: #fff; letter-spacing: -0.5px; }
-.sstat-label { font-size: 9px; font-weight: 700; color: #555; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 3px; }
+  .social-row { display: flex; gap: 8px; align-items: center; }
+  .social-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid var(--sand);
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .social-btn:hover { background: var(--sand); }
+  .social-btn svg { width: 14px; height: 14px; }
+  .contact-pill {
+    margin-left: auto;
+    background: var(--earth);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+  }
+  .contact-pill:hover { background: var(--gold); }
 
-.section { padding: 40px 28px; border-bottom: 1px solid #e5e3de; background: #fff; }
-.section.alt { background: #f8f7f4; }
-.section-label { font-size: 10px; font-weight: 800; letter-spacing: 3px; color: #2563EB; text-transform: uppercase; margin-bottom: 4px; }
-.section-title { font-size: clamp(22px, 4vw, 30px); font-weight: 900; color: #111; letter-spacing: -1px; margin-bottom: 22px; }
+  /* STATS */
+  .stats-row {
+    display: flex;
+    border-bottom: 1px solid var(--sand);
+  }
+  .stat {
+    flex: 1;
+    padding: 14px 10px;
+    text-align: center;
+    border-right: 1px solid var(--sand);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--earth);
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+  .stat-label { font-size: 9px; color: var(--bark); text-transform: uppercase; letter-spacing: 0.5px; }
 
-.action-photo { width: 100%; height: 260px; background: #eee; border-radius: 8px; overflow: hidden; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; border: 2px dashed #ccc; }
-.action-photo img { width: 100%; height: 100%; object-fit: cover; }
-.action-photo-placeholder { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-.action-photo-placeholder svg { width: 32px; height: 32px; opacity: 0.2; }
-.action-photo-placeholder span { font-size: 11px; color: #aaa; letter-spacing: 1px; text-transform: uppercase; }
+  /* SECTION HEADER */
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px 10px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--earth);
+    letter-spacing: 0.3px;
+  }
+  .section-more { font-size: 11px; color: var(--bark); cursor: pointer; }
 
-.video-wrap { border-radius: 8px; overflow: hidden; border: 1px solid #e5e3de; }
-.video-frame { width: 100%; aspect-ratio: 16/9; border: none; display: block; }
-.video-placeholder { height: 200px; background: #1a1a1a; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
-.play-circle { width: 56px; height: 56px; border-radius: 50%; border: 2px solid #2563EB; display: flex; align-items: center; justify-content: center; }
-.play-circle svg { width: 20px; height: 20px; margin-left: 4px; }
-.video-placeholder span { font-size: 11px; color: #555; letter-spacing: 1px; text-transform: uppercase; }
-.video-info { padding: 12px 16px; background: #f8f7f4; border-top: 1px solid #e5e3de; }
-.video-info-title { font-size: 13px; font-weight: 700; color: #111; }
-.video-info-sub { font-size: 11px; color: #888; margin-top: 2px; }
+  /* PALMARES */
+  .palmares-list { padding: 0 20px 16px; }
+  .palmares-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--cream);
+  }
+  .palmares-item:last-child { border-bottom: none; }
+  .palmares-rank {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .rank-1 { background: #FDF5E4; color: var(--gold); border: 1px solid var(--gold-light); }
+  .rank-2 { background: #F3F3F3; color: #666; border: 1px solid #ddd; }
+  .rank-3 { background: #FFF0E8; color: #A0522D; border: 1px solid #F4C9A8; }
+  .rank-other { background: var(--cream); color: var(--bark); border: 1px solid var(--sand); font-size: 10px; }
+  .palmares-event { font-size: 13px; font-weight: 500; color: var(--earth); }
+  .palmares-detail { font-size: 11px; color: var(--bark); margin-top: 1px; }
+  .palmares-year { font-size: 11px; color: var(--stone); margin-left: auto; flex-shrink: 0; }
 
-.galerie { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; border-radius: 8px; overflow: hidden; }
-.galerie-item { aspect-ratio: 1; background: #e8e6e1; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-.galerie-item img { width: 100%; height: 100%; object-fit: cover; }
-.galerie-placeholder { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-.galerie-placeholder svg { width: 20px; height: 20px; opacity: 0.2; }
-.galerie-placeholder span { font-size: 9px; color: #bbb; letter-spacing: 0.5px; text-transform: uppercase; }
+  /* AGENDA */
+  .agenda-list { padding: 0 20px 16px; }
+  .agenda-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--cream);
+  }
+  .agenda-item:last-child { border-bottom: none; }
+  .agenda-date-box {
+    width: 40px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .agenda-day {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--earth);
+    line-height: 1;
+  }
+  .agenda-month { font-size: 10px; color: var(--bark); text-transform: uppercase; letter-spacing: 0.5px; }
+  .agenda-event { font-size: 13px; font-weight: 500; color: var(--earth); }
+  .agenda-lieu { font-size: 11px; color: var(--bark); margin-top: 2px; }
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-top: 4px;
+  }
+  .badge-green { background: #EAF5EE; color: #1A5C34; border: 1px solid #8FD4A8; }
+  .badge-amber { background: #FDF5E4; color: #7A5320; border: 1px solid var(--gold-light); }
+  .badge-coral { background: #FEF0EC; color: #8B2500; border: 1px solid #F4A987; }
+  .badge-sold  { background: var(--cream); color: var(--stone); border: 1px solid var(--sand); }
 
-.palmares-list { display: flex; flex-direction: column; gap: 8px; }
-.p-item { display: flex; align-items: center; gap: 16px; padding: 14px 16px; background: #f8f7f4; border-radius: 6px; border: 1px solid #e5e3de; }
-.p-rank { font-size: 26px; font-weight: 900; min-width: 36px; font-style: italic; }
-.rank-1 { color: #ca8a04; }
-.rank-2 { color: #888; }
-.rank-3 { color: #b45309; }
-.p-info { flex: 1; }
-.p-event { font-size: 13px; font-weight: 700; color: #111; }
-.p-detail { font-size: 11px; color: #888; margin-top: 2px; }
-.p-year { font-size: 12px; font-weight: 800; color: #ccc; }
+  /* CHEVAUX */
+  .vente-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 20px 20px; }
+  .cheval-card {
+    border: 1px solid var(--sand);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--cream);
+  }
+  .cheval-photo {
+    height: 110px;
+    background: var(--sand);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    position: relative;
+  }
+  .cheval-dispo { position: absolute; top: 6px; right: 6px; }
+  .cheval-body { padding: 10px; }
+  .cheval-nom { font-size: 12px; font-weight: 600; color: var(--earth); margin-bottom: 4px; }
+  .cheval-specs { font-size: 10px; color: var(--bark); line-height: 1.5; margin-bottom: 6px; }
+  .cheval-prix { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 600; color: var(--gold); margin-bottom: 6px; }
+  .cheval-contact {
+    display: block;
+    font-size: 10px;
+    font-weight: 500;
+    text-align: center;
+    padding: 5px;
+    background: var(--earth);
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .cheval-contact:hover { background: var(--gold); }
 
-.agenda-grid { display: flex; flex-direction: column; gap: 8px; }
-.a-item { display: flex; align-items: center; gap: 16px; padding: 14px 16px; background: #fff; border-radius: 6px; border: 1px solid #e5e3de; border-left: 4px solid #2563EB; }
-.a-date { text-align: center; min-width: 36px; }
-.a-day { font-size: 26px; font-weight: 900; color: #2563EB; line-height: 1; }
-.a-month { font-size: 9px; font-weight: 700; color: #aaa; letter-spacing: 1px; text-transform: uppercase; }
-.a-info { flex: 1; }
-.a-event { font-size: 13px; font-weight: 700; color: #111; }
-.a-lieu { font-size: 11px; color: #888; margin-top: 2px; }
-.abadge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 3px; margin-top: 4px; display: inline-block; letter-spacing: 0.5px; text-transform: uppercase; }
-.ab-green { background: #dcfce7; color: #166534; }
-.ab-amber { background: #fef9c3; color: #854d0e; }
-.ab-blue  { background: #dbeafe; color: #1e40af; }
+  /* VIDEO */
+  .video-block { padding: 0 20px 20px; }
+  .video-placeholder {
+    height: 180px;
+    background: var(--earth);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .video-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(196,146,58,0.3), transparent);
+  }
+  .play-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    border: 2px solid rgba(255,255,255,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+  .play-btn svg { width: 18px; height: 18px; margin-left: 3px; }
+  .video-label { font-size: 12px; color: rgba(255,255,255,0.6); z-index: 1; }
+  .video-meta { padding: 10px 0 0; }
+  .video-title { font-size: 13px; font-weight: 500; color: var(--earth); }
+  .video-sub { font-size: 11px; color: var(--bark); margin-top: 2px; }
 
-.vente-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-.cheval { background: #fff; border-radius: 8px; overflow: hidden; border: 1px solid #e5e3de; }
-.cheval-img { height: 130px; background: #f0eeea; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; position: relative; border-bottom: 1px solid #e5e3de; }
-.cheval-img img { width: 100%; height: 100%; object-fit: cover; }
-.cheval-img-ph { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-.cheval-img-ph svg { width: 26px; height: 26px; opacity: 0.2; }
-.cheval-img-ph span { font-size: 9px; color: #bbb; letter-spacing: 1px; text-transform: uppercase; }
-.cdispo { position: absolute; top: 8px; right: 8px; font-size: 9px; font-weight: 800; padding: 3px 7px; border-radius: 3px; letter-spacing: 0.5px; text-transform: uppercase; }
-.cd-ok   { background: #dcfce7; color: #166534; }
-.cd-off  { background: #fef9c3; color: #854d0e; }
-.cd-sold { background: #f1f1f1; color: #aaa; }
-.cheval-body { padding: 10px 12px 14px; }
-.cheval-nom { font-size: 13px; font-weight: 800; color: #111; margin-bottom: 3px; }
-.cheval-specs { font-size: 11px; color: #888; line-height: 1.6; }
-.cheval-prix { font-size: 16px; font-weight: 900; color: #2563EB; margin-top: 8px; }
-.cheval-btn { display: block; margin-top: 8px; font-size: 10px; font-weight: 800; text-align: center; padding: 8px 0; border-radius: 4px; border: 2px solid #111; color: #111; background: transparent; letter-spacing: 0.5px; text-transform: uppercase; text-decoration: none; }
-.cheval-btn:hover { background: #111; color: #fff; }
-.cheval-btn.disabled { border-color: #ddd; color: #ccc; pointer-events: none; }
+  /* FOOTER */
+  footer {
+    padding: 24px 20px;
+    border-top: 1px solid var(--sand);
+    text-align: center;
+    background: var(--cream);
+  }
+  footer p { font-size: 12px; color: var(--bark); line-height: 1.8; }
+  .footer-contact {
+    display: inline-block;
+    margin-top: 12px;
+    background: var(--earth);
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 24px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .footer-contact:hover { background: var(--gold); }
 
-.creds-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
-.cred { background: #fff; border-radius: 6px; padding: 14px; border: 1px solid #e5e3de; border-top: 3px solid #111; }
-.cred-title { font-size: 13px; font-weight: 800; color: #111; margin-bottom: 4px; }
-.cred-detail { font-size: 11px; color: #888; line-height: 1.5; }
-
-.footer-bar { display: flex; gap: 10px; padding: 20px 28px; border-top: 2px solid #111; background: #fff; align-items: center; flex-wrap: wrap; }
-.soc-btn { width: 36px; height: 36px; border-radius: 50%; border: 1px solid #e5e3de; background: #f8f7f4; display: flex; align-items: center; justify-content: center; text-decoration: none; }
-.soc-btn svg { width: 15px; height: 15px; }
-.soc-spacer { flex: 1; }
-.soc-mail { font-size: 11px; font-weight: 800; padding: 10px 22px; background: #2563EB; color: #fff; border-radius: 4px; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; }
-.soc-mail:hover { background: #1d4ed8; }
-
-@media (min-width: 600px) {
-  .vente-grid { grid-template-columns: repeat(3, 1fr); }
-  .creds-row { grid-template-columns: repeat(4, 1fr); }
-}
-@media (max-width: 480px) {
-  nav { padding: 12px 16px; }
-  .nav-links { display: none; }
-  .section { padding: 28px 16px; }
-  .hero-content { padding: 20px 16px; }
-  .stats-band { grid-template-columns: repeat(2, 1fr); }
-  .sstat:nth-child(2) { border-right: none; }
-  .footer-bar { padding: 16px; }
-}
+  /* DIVIDER */
+  .divider { height: 1px; background: var(--sand); margin: 0 20px; }
 </style>
 </head>
 <body>
-<div class="w">
+<div class="site">
 
   <nav>
-    <a href="#" class="logo">AM<span>V</span></a>
+    <div class="nav-logo">AM<span>V</span></div>
     <div class="nav-links">
       <a href="#palmares">Palmarès</a>
       <a href="#agenda">Agenda</a>
       <a href="#vente">Vente</a>
       <a href="#contact">Contact</a>
     </div>
-    <a href="mailto:alice.moranval@gmail.com" class="nav-cta">Me contacter</a>
   </nav>
 
+  <!-- HERO -->
   <div class="hero">
-    <img src="alice-portrait.png" alt="Alice Moranval-Vincent">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <div class="hero-pre">Cavalière Professionnelle</div>
-      <div class="hero-name">Alice<br>Moranval-<br>Vincent</div>
-      <div class="hero-sub">CSO · Saut d'obstacles international</div>
-      <div class="hero-badges">
-        <span class="hbadge">CSI 3★★★</span>
-        <span class="hbadge">1m40 Fontainebleau</span>
-        <span class="hbadge">DEJEPS Coach</span>
-        <span class="hbadge">Jeunes Chevaux</span>
-        <span class="hbadge">Permis PL</span>
+    <div class="hero-avatar">
+      <img src="alice-portrait.png" alt="Alice Moranval-Vincent" onerror="this.parentElement.innerHTML='<div class=\'hero-avatar-fallback\'>AMV</div>'">
+    </div>
+    <div>
+      <div class="hero-name">Alice Moranval-Vincent</div>
+      <div class="hero-title">Cavalière Professionnelle · Saut d'obstacles · Hautes-Alpes</div>
+      <div class="tags">
+        <span class="tag tag-gold">CSI 3★</span>
+        <span class="tag tag-gold">1m40</span>
+        <span class="tag tag-green">DEJEPS</span>
+        <span class="tag tag-gray">Hautes-Alpes</span>
+      </div>
+      <div class="social-row">
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/alicemv.cavaliere" target="_blank" class="social-btn" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C13584" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#C13584" stroke="none"/></svg>
+        </a>
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/alice.moranval" target="_blank" class="social-btn" title="Facebook">
+          <svg viewBox="0 0 24 24" fill="#1877F2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <!-- YouTube — masqué si pas de lien -->
+        <!-- <a href="#" target="_blank" class="social-btn" title="YouTube">
+          <svg viewBox="0 0 24 24" fill="#FF0000"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+        </a> -->
+        <a href="mailto:alice.moranval@gmail.com" class="contact-pill">Contacter</a>
       </div>
     </div>
   </div>
 
-  <div class="stats-band">
-    <div class="sstat"><div class="sstat-num">CSI 3★</div><div class="sstat-label">International</div></div>
-    <div class="sstat"><div class="sstat-num">1m40</div><div class="sstat-label">Hauteur max</div></div>
-    <div class="sstat"><div class="sstat-num">DEJEPS</div><div class="sstat-label">Coaching</div></div>
-    <div class="sstat"><div class="sstat-num">PL</div><div class="sstat-label">Transport</div></div>
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat"><div class="stat-num">CSI 3★</div><div class="stat-label">International</div></div>
+    <div class="stat"><div class="stat-num">1m40</div><div class="stat-label">Hauteur max</div></div>
+    <div class="stat"><div class="stat-num">DEJEPS</div><div class="stat-label">Coaching</div></div>
+    <div class="stat"><div class="stat-num">PL</div><div class="stat-label">Transport</div></div>
   </div>
 
-  <div class="section">
-    <div class="section-label">En action</div>
-    <div class="section-title">Sur le parcours</div>
-    <div class="action-photo">
-      <!-- Remplacer src par une vraie photo d'action -->
-      <!-- <img src="alice-action.jpg" alt="Alice en compétition"> -->
-      <div class="action-photo-placeholder">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1"><rect x="2" y="6" width="20" height="14" rx="2"/><circle cx="12" cy="13" r="3"/></svg>
-        <span>Photo compétition à intégrer</span>
-      </div>
+  <!-- PALMARES -->
+  <div id="palmares">
+    <div class="section-header">
+      <div class="section-title">Palmarès</div>
     </div>
-    <!-- Vidéo YouTube : remplacer YOUTUBE_ID par l'identifiant de la vidéo -->
-    <div class="video-wrap">
-      <!-- <iframe class="video-frame" src="https://www.youtube.com/embed/YOUTUBE_ID" allowfullscreen></iframe> -->
-      <div class="video-placeholder">
-        <div class="play-circle">
-          <svg viewBox="0 0 24 24" fill="#2563EB"><polygon points="5,3 19,12 5,21"/></svg>
-        </div>
-        <span>Vidéo YouTube à intégrer</span>
-      </div>
-      <div class="video-info">
-        <div class="video-info-title">Parcours CSI 3★ — Fontainebleau 2024</div>
-        <div class="video-info-sub">1m40 · Grand Prix</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section alt">
-    <div class="section-label">Photos</div>
-    <div class="section-title">Galerie</div>
-    <div class="galerie">
-      <!-- Remplacer les placeholders par de vraies photos -->
-      <!-- <div class="galerie-item"><img src="photo1.jpg" alt=""></div> -->
-      <div class="galerie-item"><div class="galerie-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1"><rect x="2" y="6" width="20" height="14" rx="2"/><circle cx="12" cy="13" r="3"/></svg><span>Photo 1</span></div></div>
-      <div class="galerie-item"><div class="galerie-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1"><rect x="2" y="6" width="20" height="14" rx="2"/><circle cx="12" cy="13" r="3"/></svg><span>Photo 2</span></div></div>
-      <div class="galerie-item"><div class="galerie-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1"><rect x="2" y="6" width="20" height="14" rx="2"/><circle cx="12" cy="13" r="3"/></svg><span>Photo 3</span></div></div>
-      <div class="galerie-item"><div class="galerie-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1"><rect x="2" y="6" width="20" height="14" rx="2"/><circle cx="12" cy="13" r="3"/></svg><span>Photo 4</span></div></div>
-      <div class="galerie-item"><div class="galerie-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1"><rect x="2" y="6" width="20" height="14" rx="2"/><circle cx="12" cy="13" r="3"/></svg><span>Photo 5</span></div></div>
-      <div class="galerie-item"><div class="galerie-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1"><rect x="2" y="6" width="20" height="14" rx="2"/><circle cx="12" cy="13" r="3"/></svg><span>Photo 6</span></div></div>
-    </div>
-  </div>
-
-  <div id="palmares" class="section">
-    <div class="section-label">Résultats</div>
-    <div class="section-title">Palmarès</div>
     <div class="palmares-list">
-      <!-- À remplacer par le vrai palmarès d'Alice -->
-      <div class="p-item"><div class="p-rank rank-1">01</div><div class="p-info"><div class="p-event">CSI 3★ — Grand Prix Fontainebleau</div><div class="p-detail">1m40 · Seine-et-Marne</div></div><div class="p-year">2024</div></div>
-      <div class="p-item"><div class="p-rank rank-2">02</div><div class="p-info"><div class="p-event">Championnat de France Amateur Elite</div><div class="p-detail">1m35 · Lamotte-Beuvron</div></div><div class="p-year">2023</div></div>
-      <div class="p-item"><div class="p-rank rank-3">03</div><div class="p-info"><div class="p-event">Grand Prix Régional PACA</div><div class="p-detail">1m30 · Marseille</div></div><div class="p-year">2023</div></div>
+      <div class="palmares-item">
+        <div class="palmares-rank rank-1">1er</div>
+        <div>
+          <div class="palmares-event">À compléter</div>
+          <div class="palmares-detail">Lieu · niveau</div>
+        </div>
+        <div class="palmares-year">2025</div>
+      </div>
+      <div class="palmares-item">
+        <div class="palmares-rank rank-2">2e</div>
+        <div>
+          <div class="palmares-event">À compléter</div>
+          <div class="palmares-detail">Lieu · niveau</div>
+        </div>
+        <div class="palmares-year">2024</div>
+      </div>
+      <div class="palmares-item">
+        <div class="palmares-rank rank-3">3e</div>
+        <div>
+          <div class="palmares-event">À compléter</div>
+          <div class="palmares-detail">Lieu · niveau</div>
+        </div>
+        <div class="palmares-year">2024</div>
+      </div>
     </div>
   </div>
 
-  <div id="agenda" class="section alt">
-    <div class="section-label">Prochaines dates</div>
-    <div class="section-title">Agenda</div>
-    <div class="agenda-grid">
-      <!-- À remplacer par le vrai agenda d'Alice -->
-      <div class="a-item"><div class="a-date"><div class="a-day">12</div><div class="a-month">Avr</div></div><div class="a-info"><div class="a-event">CSO National — Gap</div><div class="a-lieu">Hautes-Alpes · 1m35</div><span class="abadge ab-green">Inscrite</span></div></div>
-      <div class="a-item"><div class="a-date"><div class="a-day">18</div><div class="a-month">Mai</div></div><div class="a-info"><div class="a-event">CSI 2★ — Lyon</div><div class="a-lieu">Ain · 1m40</div><span class="abadge ab-amber">À confirmer</span></div></div>
-      <div class="a-item"><div class="a-date"><div class="a-day">07</div><div class="a-month">Juin</div></div><div class="a-info"><div class="a-event">CSI 3★ — Fontainebleau</div><div class="a-lieu">Seine-et-Marne · 1m40</div><span class="abadge ab-blue">Qualifiée</span></div></div>
+  <div class="divider"></div>
+
+  <!-- AGENDA -->
+  <div id="agenda">
+    <div class="section-header">
+      <div class="section-title">Agenda des compétitions</div>
+    </div>
+    <div class="agenda-list">
+      <div class="agenda-item">
+        <div class="agenda-date-box"><div class="agenda-day">--</div><div class="agenda-month">Mois</div></div>
+        <div>
+          <div class="agenda-event">À compléter</div>
+          <div class="agenda-lieu">Lieu · niveau</div>
+          <span class="badge badge-green">Inscrite</span>
+        </div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-date-box"><div class="agenda-day">--</div><div class="agenda-month">Mois</div></div>
+        <div>
+          <div class="agenda-event">À compléter</div>
+          <div class="agenda-lieu">Lieu · niveau</div>
+          <span class="badge badge-amber">À confirmer</span>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div id="vente" class="section">
-    <div class="section-label">Disponibles</div>
-    <div class="section-title">Chevaux à vendre</div>
+  <div class="divider"></div>
+
+  <!-- VIDEO -->
+  <div class="section-header">
+    <div class="section-title">Vidéo à la une</div>
+  </div>
+  <!-- Décommenter quand lien YouTube dispo :
+  <div class="video-block">
+    <div style="position:relative; padding-bottom:56.25%; border-radius:10px; overflow:hidden;">
+      <iframe style="position:absolute;inset:0;width:100%;height:100%;" src="https://www.youtube.com/embed/VIDEOID" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+  -->
+  <div class="video-block">
+    <div class="video-placeholder">
+      <div class="play-btn"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
+      <div class="video-label">Vidéo YouTube à venir</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- CHEVAUX A VENDRE -->
+  <div id="vente">
+    <div class="section-header">
+      <div class="section-title">Chevaux à vendre</div>
+    </div>
+    <p style="font-size:11px; color:#8B7355; padding: 0 20px 12px;">Chevaux sélectionnés et travaillés par Alice — garantie de sérieux et de suivi.</p>
     <div class="vente-grid">
-      <!-- À remplacer par les vrais chevaux d'Alice -->
-      <div class="cheval">
-        <div class="cheval-img">
-          <!-- <img src="cheval1.jpg" alt="Qualyste de Bozouls"> -->
-          <div class="cheval-img-ph"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1"><rect x="2" y="6" width="20" height="14" rx="2"/><circle cx="12" cy="13" r="3"/></svg><span>Photo</span></div>
-          <span class="cdispo cd-ok">Dispo</span>
-        </div>
+      <div class="cheval-card">
+        <div class="cheval-photo">🐎<span class="cheval-dispo badge badge-green">Disponible</span></div>
         <div class="cheval-body">
-          <div class="cheval-nom">Qualyste de Bozouls</div>
-          <div class="cheval-specs">SF · 8 ans · Hongre<br>Niveau : 1m30 CSO<br>Robe : Bai</div>
-          <div class="cheval-prix">25 000 €</div>
-          <a href="mailto:alice.moranval@gmail.com?subject=Qualyste de Bozouls" class="cheval-btn">Contacter Alice</a>
+          <div class="cheval-nom">À compléter</div>
+          <div class="cheval-specs">Race · âge · sexe<br>Niveau : 1mXX CSO<br>Robe : -</div>
+          <div class="cheval-prix">Prix sur demande</div>
+          <a href="mailto:alice.moranval@gmail.com" class="cheval-contact">Contacter Alice</a>
         </div>
       </div>
-      <div class="cheval">
-        <div class="cheval-img">
-          <div class="cheval-img-ph"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1"><rect x="2" y="6" width="20" height="14" rx="2"/><circle cx="12" cy="13" r="3"/></svg><span>Photo</span></div>
-          <span class="cdispo cd-off">Sous offre</span>
-        </div>
+      <div class="cheval-card">
+        <div class="cheval-photo">🐎<span class="cheval-dispo badge badge-green">Disponible</span></div>
         <div class="cheval-body">
-          <div class="cheval-nom">Domingo Z</div>
-          <div class="cheval-specs">ZANG · 6 ans · Entier<br>Niveau : 1m20 CSO<br>Robe : Gris</div>
-          <div class="cheval-prix">18 000 €</div>
-          <a href="mailto:alice.moranval@gmail.com?subject=Domingo Z" class="cheval-btn">Renseignements</a>
-        </div>
-      </div>
-      <div class="cheval">
-        <div class="cheval-img">
-          <div class="cheval-img-ph"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1"><rect x="2" y="6" width="20" height="14" rx="2"/><circle cx="12" cy="13" r="3"/></svg><span>Photo</span></div>
-          <span class="cdispo cd-ok">Dispo</span>
-        </div>
-        <div class="cheval-body">
-          <div class="cheval-nom">Naya des Pins</div>
-          <div class="cheval-specs">SF · 5 ans · Jument<br>Jeune cheval · Débourré<br>Robe : Alezan</div>
-          <div class="cheval-prix">12 000 €</div>
-          <a href="mailto:alice.moranval@gmail.com?subject=Naya des Pins" class="cheval-btn">Contacter Alice</a>
-        </div>
-      </div>
-      <div class="cheval">
-        <div class="cheval-img">
-          <div class="cheval-img-ph"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1"><rect x="2" y="6" width="20" height="14" rx="2"/><circle cx="12" cy="13" r="3"/></svg><span>Photo</span></div>
-          <span class="cdispo cd-sold">Vendu</span>
-        </div>
-        <div class="cheval-body">
-          <div class="cheval-nom">Urago de Laume</div>
-          <div class="cheval-specs">SF · 10 ans · Hongre<br>Niveau : 1m40 CSO<br>Robe : Bai brun</div>
-          <div class="cheval-prix" style="color:#ccc;">Vendu</div>
-          <span class="cheval-btn disabled">Vendu</span>
+          <div class="cheval-nom">À compléter</div>
+          <div class="cheval-specs">Race · âge · sexe<br>Niveau : 1mXX CSO<br>Robe : -</div>
+          <div class="cheval-prix">Prix sur demande</div>
+          <a href="mailto:alice.moranval@gmail.com" class="cheval-contact">Contacter Alice</a>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="section alt">
-    <div class="section-label">Expertise</div>
-    <div class="section-title">Qualifications</div>
-    <div class="creds-row">
-      <div class="cred"><div class="cred-title">DEJEPS</div><div class="cred-detail">Perfectionnement sportif · Coaching équestre</div></div>
-      <div class="cred"><div class="cred-title">Jeunes chevaux</div><div class="cred-detail">Formation & débourrage</div></div>
-      <div class="cred"><div class="cred-title">Permis PL</div><div class="cred-detail">Transport de chevaux en autonomie</div></div>
-      <div class="cred"><div class="cred-title">CSI 3★★★</div><div class="cred-detail">Concours de saut international</div></div>
-    </div>
-  </div>
-
-  <div id="contact" class="footer-bar">
-    <a href="https://instagram.com/" target="_blank" class="soc-btn">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#d62976" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#d62976" stroke="none"/></svg>
-    </a>
-    <a href="https://facebook.com/" target="_blank" class="soc-btn">
-      <svg viewBox="0 0 24 24" fill="#1877F2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-    </a>
-    <a href="https://youtube.com/" target="_blank" class="soc-btn">
-      <svg viewBox="0 0 24 24" fill="#FF0000"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
-    </a>
-    <div class="soc-spacer"></div>
-    <a href="mailto:alice.moranval@gmail.com" class="soc-mail">Envoyer un message</a>
-  </div>
+  <!-- FOOTER -->
+  <footer id="contact">
+    <p>Alice Moranval-Vincent · Cavalière Professionnelle CSO</p>
+    <p>Hautes-Alpes, France</p>
+    <a href="mailto:alice.moranval@gmail.com" class="footer-contact">Envoyer un message</a>
+  </footer>
 
 </div>
 </body>
