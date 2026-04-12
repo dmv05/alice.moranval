@@ -5,282 +5,316 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alice Moranval-Vincent — Cavalière Professionnelle CSO</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f4f0; min-height: 100vh; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #f8f7f4; color: #111; }
+.w { max-width: 900px; margin: 0 auto; background: #f8f7f4; }
 
-  .site { max-width: 480px; margin: 0 auto; background: #fff; min-height: 100vh; border-left: 0.5px solid #e0dfd8; border-right: 0.5px solid #e0dfd8; }
+nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 28px; background: #fff; border-bottom: 2px solid #111; position: sticky; top: 0; z-index: 100; flex-wrap: wrap; gap: 12px; }
+.logo { font-size: 22px; font-weight: 900; letter-spacing: -1px; color: #111; text-decoration: none; }
+.logo span { color: #2563EB; }
+.nav-links { display: flex; gap: 20px; }
+.nav-links a { font-size: 11px; font-weight: 700; color: #888; text-decoration: none; letter-spacing: 1.5px; text-transform: uppercase; }
+.nav-links a:hover { color: #111; }
+.nav-cta { font-size: 11px; font-weight: 800; padding: 9px 18px; background: #111; color: #fff; border-radius: 4px; letter-spacing: 0.5px; text-transform: uppercase; text-decoration: none; }
+.nav-cta:hover { background: #2563EB; }
 
-  /* NAV */
-  nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 0.5px solid #e0dfd8; background: #fff; position: sticky; top: 0; z-index: 10; }
-  .nav-logo { font-size: 16px; font-weight: 500; color: #1a1a1a; letter-spacing: -0.3px; }
-  .nav-logo span { color: #7F77DD; }
-  .nav-links { display: flex; gap: 12px; }
-  .nav-links a { font-size: 11px; color: #888780; text-decoration: none; }
-  .nav-links a:hover { color: #1a1a1a; }
+.hero { position: relative; height: 480px; background: #ddd; overflow: hidden; display: flex; align-items: flex-end; }
+.hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.75) 100%); }
+.hero-content { position: relative; z-index: 2; padding: 32px 28px; width: 100%; }
+.hero-pre { font-size: 11px; font-weight: 800; letter-spacing: 3px; color: #60a5fa; text-transform: uppercase; margin-bottom: 8px; }
+.hero-name { font-size: clamp(32px, 6vw, 52px); font-weight: 900; letter-spacing: -2px; line-height: 0.95; color: #fff; margin-bottom: 8px; }
+.hero-sub { font-size: 14px; color: rgba(255,255,255,0.65); margin-bottom: 16px; }
+.hero-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+.hbadge { font-size: 10px; font-weight: 800; padding: 4px 10px; background: rgba(255,255,255,0.15); color: #fff; border-radius: 3px; letter-spacing: 0.5px; border: 1px solid rgba(255,255,255,0.25); }
 
-  /* HERO */
-  .hero { display: flex; align-items: flex-start; gap: 16px; padding: 24px 20px 20px; border-bottom: 0.5px solid #e0dfd8; }
-  .hero-avatar { width: 76px; height: 76px; border-radius: 50%; background: #AFA9EC; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 500; color: #26215C; flex-shrink: 0; }
-  .hero-name { font-size: 19px; font-weight: 500; color: #1a1a1a; margin-bottom: 2px; }
-  .hero-title { font-size: 13px; color: #888780; margin-bottom: 10px; }
- <img src="alice-portrait.png" alt="Alice Moranval-Vincent" style="width:100%; height:220px; object-fit:cover; object-position: center top;">
-  .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
-  .tag { font-size: 11px; padding: 3px 9px; border-radius: 6px; }
-  .tag-purple { background: #EEEDFE; color: #3C3489; border: 0.5px solid #AFA9EC; }
-  .tag-amber  { background: #FAEEDA; color: #633806; border: 0.5px solid #EF9F27; }
-  .tag-teal   { background: #E1F5EE; color: #085041; border: 0.5px solid #5DCAA5; }
-  .tag-gray   { background: #F1EFE8; color: #444441; border: 0.5px solid #B4B2A9; }
-  .social-row { display: flex; gap: 7px; }
-  .social-btn { width: 30px; height: 30px; border-radius: 50%; border: 0.5px solid #e0dfd8; background: #f5f4f0; display: flex; align-items: center; justify-content: center; text-decoration: none; }
-  .social-btn svg { width: 14px; height: 14px; }
+.stats-band { display: grid; grid-template-columns: repeat(4, 1fr); background: #111; }
+.sstat { padding: 16px 8px; text-align: center; border-right: 1px solid #2a2a2a; }
+.sstat:last-child { border-right: none; }
+.sstat-num { font-size: 17px; font-weight: 900; color: #fff; letter-spacing: -0.5px; }
+.sstat-label { font-size: 9px; font-weight: 700; color: #555; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 3px; }
 
-  /* HIGHLIGHT */
-  .highlight-bar { display: flex; align-items: center; gap: 8px; padding: 9px 20px; background: #EEEDFE; border-bottom: 0.5px solid #AFA9EC; }
-  .highlight-star { font-size: 13px; color: #534AB7; }
-  .highlight-text { font-size: 13px; color: #3C3489; font-weight: 500; }
-  .highlight-sub { font-size: 12px; color: #534AB7; }
+.section { padding: 40px 28px; border-bottom: 1px solid #e5e3de; background: #fff; }
+.section.alt { background: #f8f7f4; }
+.section-label { font-size: 10px; font-weight: 800; letter-spacing: 3px; color: #2563EB; text-transform: uppercase; margin-bottom: 4px; }
+.section-title { font-size: clamp(22px, 4vw, 30px); font-weight: 900; color: #111; letter-spacing: -1px; margin-bottom: 22px; }
 
-  /* STATS */
-  .stats-row { display: flex; border-bottom: 0.5px solid #e0dfd8; }
-  .stat { flex: 1; text-align: center; padding: 11px 4px; border-right: 0.5px solid #e0dfd8; }
-  .stat:last-child { border-right: none; }
-  .stat-num { font-size: 14px; font-weight: 500; color: #1a1a1a; }
-  .stat-label { font-size: 10px; color: #888780; margin-top: 2px; }
+.action-photo { width: 100%; height: 260px; background: #eee; border-radius: 8px; overflow: hidden; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; border: 2px dashed #ccc; }
+.action-photo img { width: 100%; height: 100%; object-fit: cover; }
+.action-photo-placeholder { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.action-photo-placeholder svg { width: 32px; height: 32px; opacity: 0.2; }
+.action-photo-placeholder span { font-size: 11px; color: #aaa; letter-spacing: 1px; text-transform: uppercase; }
 
-  /* SECTIONS */
-  .section-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px 8px; }
-  .section-title { font-size: 14px; font-weight: 500; color: #1a1a1a; }
-  .section-more { font-size: 12px; color: #7F77DD; text-decoration: none; }
+.video-wrap { border-radius: 8px; overflow: hidden; border: 1px solid #e5e3de; }
+.video-frame { width: 100%; aspect-ratio: 16/9; border: none; display: block; }
+.video-placeholder { height: 200px; background: #1a1a1a; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+.play-circle { width: 56px; height: 56px; border-radius: 50%; border: 2px solid #2563EB; display: flex; align-items: center; justify-content: center; }
+.play-circle svg { width: 20px; height: 20px; margin-left: 4px; }
+.video-placeholder span { font-size: 11px; color: #555; letter-spacing: 1px; text-transform: uppercase; }
+.video-info { padding: 12px 16px; background: #f8f7f4; border-top: 1px solid #e5e3de; }
+.video-info-title { font-size: 13px; font-weight: 700; color: #111; }
+.video-info-sub { font-size: 11px; color: #888; margin-top: 2px; }
 
-  /* DIPLOMES */
-  .creds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; padding: 0 20px 16px; }
-  .cred-card { padding: 10px 12px; border-radius: 8px; border: 0.5px solid #e0dfd8; background: #fff; }
-  .cred-icon { font-size: 14px; margin-bottom: 4px; }
-  .cred-title { font-size: 12px; font-weight: 500; color: #1a1a1a; }
-  .cred-detail { font-size: 11px; color: #888780; margin-top: 1px; line-height: 1.4; }
+.galerie { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; border-radius: 8px; overflow: hidden; }
+.galerie-item { aspect-ratio: 1; background: #e8e6e1; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.galerie-item img { width: 100%; height: 100%; object-fit: cover; }
+.galerie-placeholder { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.galerie-placeholder svg { width: 20px; height: 20px; opacity: 0.2; }
+.galerie-placeholder span { font-size: 9px; color: #bbb; letter-spacing: 0.5px; text-transform: uppercase; }
 
-  /* PALMARES */
-  .palmares-list { padding: 0 20px 16px; display: flex; flex-direction: column; gap: 7px; }
-  .palmares-item { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 8px; border: 0.5px solid #e0dfd8; }
-  .medal { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 500; flex-shrink: 0; }
-  .gold   { background: #FAEEDA; color: #633806; }
-  .silver { background: #D3D1C7; color: #2C2C2A; }
-  .bronze { background: #F5C4B3; color: #4A1B0C; }
-  .palmares-info { flex: 1; }
-  .palmares-event { font-size: 12px; font-weight: 500; color: #1a1a1a; }
-  .palmares-detail { font-size: 10px; color: #888780; margin-top: 1px; }
-  .palmares-year { font-size: 11px; color: #888780; }
+.palmares-list { display: flex; flex-direction: column; gap: 8px; }
+.p-item { display: flex; align-items: center; gap: 16px; padding: 14px 16px; background: #f8f7f4; border-radius: 6px; border: 1px solid #e5e3de; }
+.p-rank { font-size: 26px; font-weight: 900; min-width: 36px; font-style: italic; }
+.rank-1 { color: #ca8a04; }
+.rank-2 { color: #888; }
+.rank-3 { color: #b45309; }
+.p-info { flex: 1; }
+.p-event { font-size: 13px; font-weight: 700; color: #111; }
+.p-detail { font-size: 11px; color: #888; margin-top: 2px; }
+.p-year { font-size: 12px; font-weight: 800; color: #ccc; }
 
-  /* AGENDA */
-  .agenda-list { padding: 0 20px 16px; display: flex; flex-direction: column; gap: 7px; }
-  .agenda-item { display: flex; gap: 12px; align-items: flex-start; padding: 9px 12px; border-radius: 8px; border: 0.5px solid #e0dfd8; }
-  .agenda-date-box { text-align: center; min-width: 32px; }
-  .agenda-day { font-size: 17px; font-weight: 500; color: #534AB7; line-height: 1; }
-  .agenda-month { font-size: 9px; color: #888780; text-transform: uppercase; }
-  .agenda-event { font-size: 12px; font-weight: 500; color: #1a1a1a; }
-  .agenda-lieu { font-size: 11px; color: #888780; margin-top: 1px; }
-  .badge { font-size: 10px; padding: 2px 7px; border-radius: 6px; margin-top: 3px; display: inline-block; }
-  .badge-green { background: #E1F5EE; color: #085041; }
-  .badge-amber { background: #FAEEDA; color: #633806; }
-  .badge-coral { background: #FAECE7; color: #712B13; }
-  .badge-sold  { background: #F1EFE8; color: #5F5E5A; }
+.agenda-grid { display: flex; flex-direction: column; gap: 8px; }
+.a-item { display: flex; align-items: center; gap: 16px; padding: 14px 16px; background: #fff; border-radius: 6px; border: 1px solid #e5e3de; border-left: 4px solid #2563EB; }
+.a-date { text-align: center; min-width: 36px; }
+.a-day { font-size: 26px; font-weight: 900; color: #2563EB; line-height: 1; }
+.a-month { font-size: 9px; font-weight: 700; color: #aaa; letter-spacing: 1px; text-transform: uppercase; }
+.a-info { flex: 1; }
+.a-event { font-size: 13px; font-weight: 700; color: #111; }
+.a-lieu { font-size: 11px; color: #888; margin-top: 2px; }
+.abadge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 3px; margin-top: 4px; display: inline-block; letter-spacing: 0.5px; text-transform: uppercase; }
+.ab-green { background: #dcfce7; color: #166534; }
+.ab-amber { background: #fef9c3; color: #854d0e; }
+.ab-blue  { background: #dbeafe; color: #1e40af; }
 
-  /* VENTE */
-  .vente-intro { padding: 0 20px 10px; font-size: 11px; color: #888780; line-height: 1.5; }
-  .vente-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 20px 20px; }
-  .cheval-card { border-radius: 8px; border: 0.5px solid #e0dfd8; background: #fff; overflow: hidden; }
-  .cheval-photo { height: 80px; background: #f5f4f0; display: flex; align-items: center; justify-content: center; font-size: 28px; border-bottom: 0.5px solid #e0dfd8; position: relative; }
-  .cheval-dispo { position: absolute; top: 6px; right: 6px; font-size: 9px; padding: 2px 6px; border-radius: 6px; }
-  .cheval-body { padding: 8px 10px 10px; }
-  .cheval-nom { font-size: 12px; font-weight: 500; color: #1a1a1a; margin-bottom: 2px; }
-  .cheval-specs { font-size: 10px; color: #888780; line-height: 1.5; }
-  .cheval-prix { font-size: 13px; font-weight: 500; color: #534AB7; margin-top: 6px; }
-  .cheval-contact { display: block; margin-top: 6px; font-size: 10px; text-align: center; padding: 5px 0; border-radius: 6px; border: 0.5px solid #AFA9EC; color: #3C3489; background: #EEEDFE; text-decoration: none; cursor: pointer; }
-  .cheval-contact:hover { background: #CECBF6; }
+.vente-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.cheval { background: #fff; border-radius: 8px; overflow: hidden; border: 1px solid #e5e3de; }
+.cheval-img { height: 130px; background: #f0eeea; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; position: relative; border-bottom: 1px solid #e5e3de; }
+.cheval-img img { width: 100%; height: 100%; object-fit: cover; }
+.cheval-img-ph { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.cheval-img-ph svg { width: 26px; height: 26px; opacity: 0.2; }
+.cheval-img-ph span { font-size: 9px; color: #bbb; letter-spacing: 1px; text-transform: uppercase; }
+.cdispo { position: absolute; top: 8px; right: 8px; font-size: 9px; font-weight: 800; padding: 3px 7px; border-radius: 3px; letter-spacing: 0.5px; text-transform: uppercase; }
+.cd-ok   { background: #dcfce7; color: #166534; }
+.cd-off  { background: #fef9c3; color: #854d0e; }
+.cd-sold { background: #f1f1f1; color: #aaa; }
+.cheval-body { padding: 10px 12px 14px; }
+.cheval-nom { font-size: 13px; font-weight: 800; color: #111; margin-bottom: 3px; }
+.cheval-specs { font-size: 11px; color: #888; line-height: 1.6; }
+.cheval-prix { font-size: 16px; font-weight: 900; color: #2563EB; margin-top: 8px; }
+.cheval-btn { display: block; margin-top: 8px; font-size: 10px; font-weight: 800; text-align: center; padding: 8px 0; border-radius: 4px; border: 2px solid #111; color: #111; background: transparent; letter-spacing: 0.5px; text-transform: uppercase; text-decoration: none; }
+.cheval-btn:hover { background: #111; color: #fff; }
+.cheval-btn.disabled { border-color: #ddd; color: #ccc; pointer-events: none; }
 
-  /* FEED */
-  .feed-section { border-top: 0.5px solid #e0dfd8; }
-  .feed-tabs { display: flex; border-bottom: 0.5px solid #e0dfd8; padding: 0 20px; }
-  .feed-tab { padding: 9px 12px 7px; font-size: 12px; border-bottom: 2px solid transparent; color: #888780; cursor: pointer; }
-  .feed-tab.active { border-bottom-color: #7F77DD; color: #1a1a1a; font-weight: 500; }
-  .feed-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; padding: 10px 20px 28px; }
-  .feed-card { aspect-ratio: 1; border-radius: 8px; background: #f5f4f0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 3px; position: relative; }
-  .feed-icon { font-size: 20px; }
-  .feed-label { font-size: 9px; color: #888780; }
-  .feed-source { position: absolute; top: 5px; right: 5px; width: 13px; height: 13px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-  .src-ig { background: #d62976; }
-  .src-fb { background: #1877F2; }
-  .src-yt { background: #FF0000; }
-  .src-dot { width: 6px; height: 6px; border-radius: 50%; background: white; }
+.creds-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.cred { background: #fff; border-radius: 6px; padding: 14px; border: 1px solid #e5e3de; border-top: 3px solid #111; }
+.cred-title { font-size: 13px; font-weight: 800; color: #111; margin-bottom: 4px; }
+.cred-detail { font-size: 11px; color: #888; line-height: 1.5; }
 
-  /* FOOTER */
-  footer { border-top: 0.5px solid #e0dfd8; padding: 20px; text-align: center; }
-  footer p { font-size: 11px; color: #888780; margin-bottom: 6px; }
-  .footer-contact { display: inline-block; font-size: 12px; padding: 8px 20px; border-radius: 6px; background: #7F77DD; color: #fff; text-decoration: none; }
-  .footer-contact:hover { background: #534AB7; }
+.footer-bar { display: flex; gap: 10px; padding: 20px 28px; border-top: 2px solid #111; background: #fff; align-items: center; flex-wrap: wrap; }
+.soc-btn { width: 36px; height: 36px; border-radius: 50%; border: 1px solid #e5e3de; background: #f8f7f4; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+.soc-btn svg { width: 15px; height: 15px; }
+.soc-spacer { flex: 1; }
+.soc-mail { font-size: 11px; font-weight: 800; padding: 10px 22px; background: #2563EB; color: #fff; border-radius: 4px; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; }
+.soc-mail:hover { background: #1d4ed8; }
 
-  @media (max-width: 480px) {
-    .site { border: none; }
-    .nav-links { gap: 8px; }
-  }
+@media (min-width: 600px) {
+  .vente-grid { grid-template-columns: repeat(3, 1fr); }
+  .creds-row { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 480px) {
+  nav { padding: 12px 16px; }
+  .nav-links { display: none; }
+  .section { padding: 28px 16px; }
+  .hero-content { padding: 20px 16px; }
+  .stats-band { grid-template-columns: repeat(2, 1fr); }
+  .sstat:nth-child(2) { border-right: none; }
+  .footer-bar { padding: 16px; }
+}
 </style>
 </head>
 <body>
-<div class="site">
+<div class="w">
 
   <nav>
-    <div class="nav-logo"><span>Alice_Moranval-Vincent</span></div>
+    <a href="#" class="logo">AM<span>V</span></a>
     <div class="nav-links">
       <a href="#palmares">Palmarès</a>
       <a href="#agenda">Agenda</a>
       <a href="#vente">Vente</a>
       <a href="#contact">Contact</a>
     </div>
+    <a href="mailto:alice@example.com" class="nav-cta">Me contacter</a>
   </nav>
 
   <div class="hero">
-    <div class="hero-avatar">AMV</div>
-    <div>
-      <div class="hero-name">Alice Moranval-Vincent</div>
-      <div class="hero-title">Cavalière Professionnelle · CSO</div>
-      <div class="tags">
-        <span class="tag tag-purple">CSI 3★★★</span>
-        <span class="tag tag-amber">1m40 Fontainebleau</span>
-        <span class="tag tag-teal">DEJEPS Coach</span>
-        <span class="tag tag-gray">Jeunes Chevaux</span>
-        <span class="tag tag-gray">Permis PL</span>
-      </div>
-      <div class="social-row">
-        <a href="#" class="social-btn" title="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#d62976" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#d62976" stroke="none"/></svg>
-        </a>
-        <a href="#" class="social-btn" title="Facebook">
-          <svg viewBox="0 0 24 24" fill="#1877F2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        </a>
-        <a href="#" class="social-btn" title="YouTube">
-          <svg viewBox="0 0 24 24" fill="#FF0000"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
-        </a>
+    <img src="alice-portrait.png" alt="Alice Moranval-Vincent">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-pre">Cavalière Professionnelle</div>
+      <div class="hero-name">Alice<br>Moranval-<br>Vincent</div>
+      <div class="hero-sub">CSO · Saut d'obstacles international</div>
+      <div class="hero-badges">
+        <span class="hbadge">CSI 3★★★</span>
+        <span class="hbadge">1m40 Fontainebleau</span>
+        <span class="hbadge">DEJEPS Coach</span>
+        <span class="hbadge">Jeunes Chevaux</span>
+        <span class="hbadge">Permis PL</span>
       </div>
     </div>
   </div>
 
-  <div class="highlight-bar">
-    <div class="highlight-star">★★★</div>
-    <div class="highlight-text">CSI 3★★★ · 1m40</div>
-    <div class="highlight-sub">— Fontainebleau</div>
+  <div class="stats-band">
+    <div class="sstat"><div class="sstat-num">CSI 3★</div><div class="sstat-label">International</div></div>
+    <div class="sstat"><div class="sstat-num">1m40</div><div class="sstat-label">Hauteur max</div></div>
+    <div class="sstat"><div class="sstat-num">DEJEPS</div><div class="sstat-label">Coaching</div></div>
+    <div class="sstat"><div class="sstat-num">PL</div><div class="sstat-label">Transport</div></div>
   </div>
 
-  <div class="stats-row">
-    <div class="stat"><div class="stat-num">CSI 3★</div><div class="stat-label">International</div></div>
-    <div class="stat"><div class="stat-num">1m40</div><div class="stat-label">Hauteur max</div></div>
-    <div class="stat"><div class="stat-num">DEJEPS</div><div class="stat-label">Coaching</div></div>
-    <div class="stat"><div class="stat-num">PL</div><div class="stat-label">Transport</div></div>
-  </div>
-
-  <div class="section-header"><div class="section-title">Qualifications & diplômes</div></div>
-  <div class="creds-grid">
-    <div class="cred-card"><div class="cred-icon">🎓</div><div class="cred-title">DEJEPS</div><div class="cred-detail">Perfectionnement sportif · Coaching équestre</div></div>
-    <div class="cred-card"><div class="cred-icon">🐴</div><div class="cred-title">Jeunes chevaux</div><div class="cred-detail">Formation & débourrage</div></div>
-    <div class="cred-card"><div class="cred-icon">🚛</div><div class="cred-title">Permis PL</div><div class="cred-detail">Transport de chevaux en autonomie</div></div>
-    <div class="cred-card"><div class="cred-icon">🏟️</div><div class="cred-title">CSI 3★★★</div><div class="cred-detail">Concours de saut international</div></div>
-  </div>
-
-  <div id="palmares" class="section-header"><div class="section-title">Palmarès</div></div>
-  <div class="palmares-list">
-    <div class="palmares-item">
-      <div class="medal gold">1er</div>
-      <div class="palmares-info"><div class="palmares-event">CSI 3★ — Grand Prix Fontainebleau</div><div class="palmares-detail">1m40 · Seine-et-Marne</div></div>
-      <div class="palmares-year">2024</div>
-    </div>
-    <div class="palmares-item">
-      <div class="medal silver">2e</div>
-      <div class="palmares-info"><div class="palmares-event">Championnat de France Amateur Elite</div><div class="palmares-detail">1m35 · Lamotte-Beuvron</div></div>
-      <div class="palmares-year">2023</div>
-    </div>
-    <div class="palmares-item">
-      <div class="medal bronze">3e</div>
-      <div class="palmares-info"><div class="palmares-event">Grand Prix Régional PACA</div><div class="palmares-detail">1m30 · Marseille</div></div>
-      <div class="palmares-year">2023</div>
-    </div>
-  </div>
-
-  <div id="agenda" class="section-header"><div class="section-title">Agenda des compétitions</div></div>
-  <div class="agenda-list">
-    <div class="agenda-item">
-      <div class="agenda-date-box"><div class="agenda-day">12</div><div class="agenda-month">Avr</div></div>
-      <div><div class="agenda-event">CSO National — Gap</div><div class="agenda-lieu">Hautes-Alpes · 1m35</div><span class="badge badge-green">Inscrite</span></div>
-    </div>
-    <div class="agenda-item">
-      <div class="agenda-date-box"><div class="agenda-day">18</div><div class="agenda-month">Mai</div></div>
-      <div><div class="agenda-event">CSI 2★ — Lyon</div><div class="agenda-lieu">Ain · 1m40</div><span class="badge badge-amber">À confirmer</span></div>
-    </div>
-    <div class="agenda-item">
-      <div class="agenda-date-box"><div class="agenda-day">07</div><div class="agenda-month">Juin</div></div>
-      <div><div class="agenda-event">CSI 3★ — Fontainebleau</div><div class="agenda-lieu">Seine-et-Marne · 1m40</div><span class="badge badge-green">Qualifiée</span></div>
-    </div>
-  </div>
-
-  <div id="vente" class="section-header"><div class="section-title">Chevaux à vendre</div></div>
-  <div class="vente-intro">Chevaux sélectionnés et travaillés par Alice — garantie de sérieux et de suivi.</div>
-  <div class="vente-grid">
-    <div class="cheval-card">
-      <div class="cheval-photo">🐎<span class="cheval-dispo badge-green badge">Disponible</span></div>
-      <div class="cheval-body">
-        <div class="cheval-nom">Qualyste de Bozouls</div>
-        <div class="cheval-specs">SF · 8 ans · Hongre<br>Niveau : 1m30 CSO<br>Robe : Bai</div>
-        <div class="cheval-prix">25 000 €</div>
-        <a href="mailto:alice@example.com" class="cheval-contact">Contacter Alice</a>
+  <div class="section">
+    <div class="section-label">En action</div>
+    <div class="section-title">Sur le parcours</div>
+    <div class="action-photo">
+      <!-- Remplacer src par une vraie photo d'action -->
+      <!-- <img src="alice-action.jpg" alt="Alice en compétition"> -->
+      <div class="action-photo-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1"><rect x="2" y="6" width="20" height="14" rx="2"/><circle cx="12" cy="13" r="3"/></svg>
+        <span>Photo compétition à intégrer</span>
       </div>
     </div>
-    <div class="cheval-card">
-      <div class="cheval-photo">🐎<span class="cheval-dispo badge-coral badge">Sous offre</span></div>
-      <div class="cheval-body">
-        <div class="cheval-nom">Domingo Z</div>
-        <div class="cheval-specs">ZANG · 6 ans · Entier<br>Niveau : 1m20 CSO<br>Robe : Gris</div>
-        <div class="cheval-prix">18 000 €</div>
-        <a href="mailto:alice@example.com" class="cheval-contact">Renseignements</a>
+    <!-- Vidéo YouTube : remplacer YOUTUBE_ID par l'identifiant de la vidéo -->
+    <div class="video-wrap">
+      <!-- <iframe class="video-frame" src="https://www.youtube.com/embed/YOUTUBE_ID" allowfullscreen></iframe> -->
+      <div class="video-placeholder">
+        <div class="play-circle">
+          <svg viewBox="0 0 24 24" fill="#2563EB"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <span>Vidéo YouTube à intégrer</span>
       </div>
-    </div>
-    <div class="cheval-card">
-      <div class="cheval-photo">🐎<span class="cheval-dispo badge-green badge">Disponible</span></div>
-      <div class="cheval-body">
-        <div class="cheval-nom">Naya des Pins</div>
-        <div class="cheval-specs">SF · 5 ans · Jument<br>Jeune cheval · Débourré<br>Robe : Alezan</div>
-        <div class="cheval-prix">12 000 €</div>
-        <a href="mailto:alice@example.com" class="cheval-contact">Contacter Alice</a>
-      </div>
-    </div>
-    <div class="cheval-card">
-      <div class="cheval-photo">🐎<span class="cheval-dispo badge-sold badge">Vendu</span></div>
-      <div class="cheval-body">
-        <div class="cheval-nom">Urago de Laume</div>
-        <div class="cheval-specs">SF · 10 ans · Hongre<br>Niveau : 1m40 CSO<br>Robe : Bai brun</div>
-        <div class="cheval-prix" style="color:#888780;">Vendu</div>
-        <span class="cheval-contact" style="opacity:0.4; pointer-events:none;">Vendu</span>
+      <div class="video-info">
+        <div class="video-info-title">Parcours CSI 3★ — Fontainebleau 2024</div>
+        <div class="video-info-sub">1m40 · Grand Prix</div>
       </div>
     </div>
   </div>
 
-  <div class="feed-section">
-    <div class="feed-tabs">
-      <div class="feed-tab active">Publications</div>
-      <div class="feed-tab">Vidéos & Reels</div>
-    </div>
-    <div class="feed-grid">
-      <div class="feed-card"><div class="feed-icon">🐴</div><div class="feed-label">Entraînement</div><div class="feed-source src-ig"><div class="src-dot"></div></div></div>
-      <div class="feed-card"><div class="feed-icon">🏆</div><div class="feed-label">Podium</div><div class="feed-source src-fb"><div class="src-dot"></div></div></div>
-      <div class="feed-card"><div class="feed-icon">▶</div><div class="feed-label">Reel CSI</div><div class="feed-source src-ig"><div class="src-dot"></div></div></div>
-      <div class="feed-card"><div class="feed-icon">🌄</div><div class="feed-label">Coulisses</div><div class="feed-source src-ig"><div class="src-dot"></div></div></div>
-      <div class="feed-card"><div class="feed-icon">▶</div><div class="feed-label">Parcours 1m40</div><div class="feed-source src-yt"><div class="src-dot"></div></div></div>
-      <div class="feed-card"><div class="feed-icon">🎓</div><div class="feed-label">Coaching</div><div class="feed-source src-fb"><div class="src-dot"></div></div></div>
+  <div class="section alt">
+    <div class="section-label">Photos</div>
+    <div class="section-title">Galerie</div>
+    <div class="galerie">
+      <!-- Remplacer les placeholders par de vraies photos -->
+      <!-- <div class="galerie-item"><img src="photo1.jpg" alt=""></div> -->
+      <div class="galerie-item"><div class="galerie-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1"><rect x="2" y="6" width="20" height="14" rx="2"/><circle cx="12" cy="13" r="3"/></svg><span>Photo 1</span></div></div>
+      <div class="galerie-item"><div class="galerie-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1"><rect x="2" y="6" width="20" height="14" rx="2"/><circle cx="12" cy="13" r="3"/></svg><span>Photo 2</span></div></div>
+      <div class="galerie-item"><div class="galerie-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1"><rect x="2" y="6" width="20" height="14" rx="2"/><circle cx="12" cy="13" r="3"/></svg><span>Photo 3</span></div></div>
+      <div class="galerie-item"><div class="galerie-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1"><rect x="2" y="6" width="20" height="14" rx="2"/><circle cx="12" cy="13" r="3"/></svg><span>Photo 4</span></div></div>
+      <div class="galerie-item"><div class="galerie-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1"><rect x="2" y="6" width="20" height="14" rx="2"/><circle cx="12" cy="13" r="3"/></svg><span>Photo 5</span></div></div>
+      <div class="galerie-item"><div class="galerie-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1"><rect x="2" y="6" width="20" height="14" rx="2"/><circle cx="12" cy="13" r="3"/></svg><span>Photo 6</span></div></div>
     </div>
   </div>
 
-  <footer id="contact">
-    <p>Alice Moranval-Vincent · Cavalière Professionnelle CSO</p>
-    <p style="margin-bottom: 12px;">Hautes-Alpes, France</p>
-    <a href="mailto:alice.moranval@gmail.com" class="footer-contact">Envoyer un message</a>
-  </footer>
+  <div id="palmares" class="section">
+    <div class="section-label">Résultats</div>
+    <div class="section-title">Palmarès</div>
+    <div class="palmares-list">
+      <!-- À remplacer par le vrai palmarès d'Alice -->
+      <div class="p-item"><div class="p-rank rank-1">01</div><div class="p-info"><div class="p-event">CSI 3★ — Grand Prix Fontainebleau</div><div class="p-detail">1m40 · Seine-et-Marne</div></div><div class="p-year">2024</div></div>
+      <div class="p-item"><div class="p-rank rank-2">02</div><div class="p-info"><div class="p-event">Championnat de France Amateur Elite</div><div class="p-detail">1m35 · Lamotte-Beuvron</div></div><div class="p-year">2023</div></div>
+      <div class="p-item"><div class="p-rank rank-3">03</div><div class="p-info"><div class="p-event">Grand Prix Régional PACA</div><div class="p-detail">1m30 · Marseille</div></div><div class="p-year">2023</div></div>
+    </div>
+  </div>
+
+  <div id="agenda" class="section alt">
+    <div class="section-label">Prochaines dates</div>
+    <div class="section-title">Agenda</div>
+    <div class="agenda-grid">
+      <!-- À remplacer par le vrai agenda d'Alice -->
+      <div class="a-item"><div class="a-date"><div class="a-day">12</div><div class="a-month">Avr</div></div><div class="a-info"><div class="a-event">CSO National — Gap</div><div class="a-lieu">Hautes-Alpes · 1m35</div><span class="abadge ab-green">Inscrite</span></div></div>
+      <div class="a-item"><div class="a-date"><div class="a-day">18</div><div class="a-month">Mai</div></div><div class="a-info"><div class="a-event">CSI 2★ — Lyon</div><div class="a-lieu">Ain · 1m40</div><span class="abadge ab-amber">À confirmer</span></div></div>
+      <div class="a-item"><div class="a-date"><div class="a-day">07</div><div class="a-month">Juin</div></div><div class="a-info"><div class="a-event">CSI 3★ — Fontainebleau</div><div class="a-lieu">Seine-et-Marne · 1m40</div><span class="abadge ab-blue">Qualifiée</span></div></div>
+    </div>
+  </div>
+
+  <div id="vente" class="section">
+    <div class="section-label">Disponibles</div>
+    <div class="section-title">Chevaux à vendre</div>
+    <div class="vente-grid">
+      <!-- À remplacer par les vrais chevaux d'Alice -->
+      <div class="cheval">
+        <div class="cheval-img">
+          <!-- <img src="cheval1.jpg" alt="Qualyste de Bozouls"> -->
+          <div class="cheval-img-ph"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1"><rect x="2" y="6" width="20" height="14" rx="2"/><circle cx="12" cy="13" r="3"/></svg><span>Photo</span></div>
+          <span class="cdispo cd-ok">Dispo</span>
+        </div>
+        <div class="cheval-body">
+          <div class="cheval-nom">Qualyste de Bozouls</div>
+          <div class="cheval-specs">SF · 8 ans · Hongre<br>Niveau : 1m30 CSO<br>Robe : Bai</div>
+          <div class="cheval-prix">25 000 €</div>
+          <a href="mailto:alice@example.com?subject=Qualyste de Bozouls" class="cheval-btn">Contacter Alice</a>
+        </div>
+      </div>
+      <div class="cheval">
+        <div class="cheval-img">
+          <div class="cheval-img-ph"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1"><rect x="2" y="6" width="20" height="14" rx="2"/><circle cx="12" cy="13" r="3"/></svg><span>Photo</span></div>
+          <span class="cdispo cd-off">Sous offre</span>
+        </div>
+        <div class="cheval-body">
+          <div class="cheval-nom">Domingo Z</div>
+          <div class="cheval-specs">ZANG · 6 ans · Entier<br>Niveau : 1m20 CSO<br>Robe : Gris</div>
+          <div class="cheval-prix">18 000 €</div>
+          <a href="mailto:alice@example.com?subject=Domingo Z" class="cheval-btn">Renseignements</a>
+        </div>
+      </div>
+      <div class="cheval">
+        <div class="cheval-img">
+          <div class="cheval-img-ph"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1"><rect x="2" y="6" width="20" height="14" rx="2"/><circle cx="12" cy="13" r="3"/></svg><span>Photo</span></div>
+          <span class="cdispo cd-ok">Dispo</span>
+        </div>
+        <div class="cheval-body">
+          <div class="cheval-nom">Naya des Pins</div>
+          <div class="cheval-specs">SF · 5 ans · Jument<br>Jeune cheval · Débourré<br>Robe : Alezan</div>
+          <div class="cheval-prix">12 000 €</div>
+          <a href="mailto:alice@example.com?subject=Naya des Pins" class="cheval-btn">Contacter Alice</a>
+        </div>
+      </div>
+      <div class="cheval">
+        <div class="cheval-img">
+          <div class="cheval-img-ph"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1"><rect x="2" y="6" width="20" height="14" rx="2"/><circle cx="12" cy="13" r="3"/></svg><span>Photo</span></div>
+          <span class="cdispo cd-sold">Vendu</span>
+        </div>
+        <div class="cheval-body">
+          <div class="cheval-nom">Urago de Laume</div>
+          <div class="cheval-specs">SF · 10 ans · Hongre<br>Niveau : 1m40 CSO<br>Robe : Bai brun</div>
+          <div class="cheval-prix" style="color:#ccc;">Vendu</div>
+          <span class="cheval-btn disabled">Vendu</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section alt">
+    <div class="section-label">Expertise</div>
+    <div class="section-title">Qualifications</div>
+    <div class="creds-row">
+      <div class="cred"><div class="cred-title">DEJEPS</div><div class="cred-detail">Perfectionnement sportif · Coaching équestre</div></div>
+      <div class="cred"><div class="cred-title">Jeunes chevaux</div><div class="cred-detail">Formation & débourrage</div></div>
+      <div class="cred"><div class="cred-title">Permis PL</div><div class="cred-detail">Transport de chevaux en autonomie</div></div>
+      <div class="cred"><div class="cred-title">CSI 3★★★</div><div class="cred-detail">Concours de saut international</div></div>
+    </div>
+  </div>
+
+  <div id="contact" class="footer-bar">
+    <a href="https://instagram.com/" target="_blank" class="soc-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#d62976" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#d62976" stroke="none"/></svg>
+    </a>
+    <a href="https://facebook.com/" target="_blank" class="soc-btn">
+      <svg viewBox="0 0 24 24" fill="#1877F2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+    </a>
+    <a href="https://youtube.com/" target="_blank" class="soc-btn">
+      <svg viewBox="0 0 24 24" fill="#FF0000"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+    </a>
+    <div class="soc-spacer"></div>
+    <a href="mailto:alice@example.com" class="soc-mail">Envoyer un message</a>
+  </div>
 
 </div>
 </body>
