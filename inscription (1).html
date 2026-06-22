@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscription Stage Équestre — Alice Moranval-Vincent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Jost:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Jost', -apple-system, sans-serif; background: #143526; color: #F7F3E8; min-height: 100vh; display: flex; flex-direction: column; }
+
+/* ── HEADER ── */
+header { background: #0e2a1d; border-bottom: 1px solid rgba(216,188,121,.25); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
+.logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; color: #F7F3E8; text-decoration: none; letter-spacing: .5px; }
+.logo span { color: #D8BC79; }
+.back { font-size: 10px; font-weight: 700; color: #A9B8AC; text-decoration: none; letter-spacing: 1.5px; text-transform: uppercase; }
+.back:hover { color: #D8BC79; }
+
+/* ── HERO BANNER ── */
+.hero { background: #0e2a1d; border-bottom: 1px solid rgba(216,188,121,.2); padding: 28px 24px 24px; text-align: center; }
+.hero-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 3px; color: #D8BC79; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+.hero-eyebrow::before, .hero-eyebrow::after { content: ''; display: inline-block; width: 30px; height: 1px; background: rgba(216,188,121,.4); }
+.hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 8vw, 56px); font-weight: 700; color: #F7F3E8; line-height: .9; letter-spacing: -1px; }
+.hero-date { display: inline-flex; align-items: center; gap: 10px; background: #163A2B; color: #fff; padding: 7px 18px; border-radius: 4px; font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; letter-spacing: .5px; margin-top: 14px; }
+.hero-lieu { margin-top: 10px; font-size: 12px; color: #A9B8AC; letter-spacing: 1.5px; text-transform: uppercase; }
+.hero-cards { margin-top: 16px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.hero-card { display: inline-flex; align-items: center; gap: 10px; background: rgba(216,188,121,.1); border: 1px solid rgba(216,188,121,.3); border-radius: 40px; padding: 6px 16px 6px 8px; }
+.hero-av { width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid #C8A75A; background: #163A2B; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 17px; color: #D8BC79; flex: 0 0 32px; }
+.hero-name strong { display: block; font-size: 13px; font-weight: 700; color: #F7F3E8; text-align: left; }
+.hero-name small { font-size: 10px; color: #B0863A; text-transform: uppercase; letter-spacing: .5px; }
+
+/* ── FORM AREA ── */
+main { flex: 1; max-width: 560px; margin: 0 auto; width: 100%; padding: 32px 24px; }
+
+.form-card { background: #F7F3E8; border-radius: 10px; border: 1px solid rgba(176,134,58,.3); padding: 28px 24px; }
+
+.field { margin-bottom: 18px; }
+.field label { display: block; font-size: 10px; font-weight: 700; color: #41524A; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+.field input, .field select, .field textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid rgba(176,134,58,.35);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: 'Jost', sans-serif;
+  color: #163A2B;
+  background: #fff;
+  transition: border-color 0.15s;
+  outline: none;
+}
+.field input:focus, .field select:focus, .field textarea:focus { border-color: #B0863A; }
+.field input.error, .field select.error, .field textarea.error { border-color: #c0392b; }
+.field .err-msg { font-size: 11px; color: #c0392b; margin-top: 4px; display: none; }
+.field .err-msg.show { display: block; }
+.field textarea { resize: vertical; min-height: 90px; }
+
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.divider-label { text-align: center; margin: 20px 0; position: relative; }
+.divider-label::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: rgba(176,134,58,.25); }
+.divider-label span { position: relative; background: #F7F3E8; padding: 0 12px; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #B0863A; }
+
+/* honeypot */
+.hp { display: none !important; }
+
+.btn-submit {
+  display: block; width: 100%; padding: 15px;
+  background: #143526; color: #F7F3E8;
+  border: none; border-radius: 6px;
+  font-size: 12px; font-family: 'Jost', sans-serif;
+  font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+  cursor: pointer; margin-top: 24px; transition: background 0.15s, opacity 0.15s;
+}
+.btn-submit:hover:not(:disabled) { background: #163A2B; }
+.btn-submit:disabled { opacity: .6; cursor: not-allowed; }
+
+/* ── SUCCESS / ERROR STATES ── */
+.alert { border-radius: 8px; padding: 18px 20px; margin-top: 20px; display: none; }
+.alert.show { display: block; }
+.alert-success { background: #163A2B; border: 1px solid rgba(216,188,121,.4); color: #F7F3E8; }
+.alert-error   { background: #3a1616; border: 1px solid rgba(192,57,43,.4); color: #F7F3E8; }
+.alert-icon { font-size: 24px; margin-bottom: 8px; }
+.alert strong { font-size: 15px; display: block; margin-bottom: 4px; }
+.alert p { font-size: 13px; color: #A9B8AC; line-height: 1.5; }
+
+footer { text-align: center; padding: 20px; font-size: 11px; color: rgba(216,188,121,.4); letter-spacing: .5px; }
+
+@media (max-width: 480px) {
+  .row { grid-template-columns: 1fr; }
+  main { padding: 24px 16px; }
+  .form-card { padding: 20px 16px; }
+  .hero { padding: 22px 16px 20px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">Alice <span>MV</span></a>
+  <a href="stages.html" class="back">← Retour au stage</a>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow">Inscription</div>
+  <div class="hero-title">Stage<br>Équestre</div>
+  <div class="hero-date">
+    <span>25 &amp; 26 Juillet</span>
+    <span style="width:5px;height:5px;background:#D8BC79;transform:rotate(45deg);display:inline-block;"></span>
+    <span style="color:#D8BC79;">2026</span>
+  </div>
+  <div class="hero-lieu">Écuries de Médagues &nbsp;·&nbsp; Culhat, Auvergne</div>
+  <div class="hero-cards">
+    <div class="hero-card">
+      <div class="hero-av">A</div>
+      <div class="hero-name">
+        <strong>Alice Moranval-Vincent</strong>
+        <small>Entraîneuse · Dressage &amp; Obstacle</small>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-av">E</div>
+      <div class="hero-name">
+        <strong>Emmanuelle Moranval-Vincent</strong>
+        <small>Coach mental · Phytothérapie</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="form-card">
+    <form id="form" novalidate>
+
+      <!-- honeypot anti-spam -->
+      <div class="hp">
+        <label>Ne pas remplir<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="prenom">Prénom *</label>
+          <input type="text" id="prenom" name="prenom" placeholder="Marie" autocomplete="given-name">
+          <div class="err-msg" id="err-prenom">Prénom requis</div>
+        </div>
+        <div class="field">
+          <label for="nom">Nom *</label>
+          <input type="text" id="nom" name="nom" placeholder="Dupont" autocomplete="family-name">
+          <div class="err-msg" id="err-nom">Nom requis</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" placeholder="marie@exemple.com" autocomplete="email">
+          <div class="err-msg" id="err-email">Email invalide</div>
+        </div>
+        <div class="field">
+          <label for="tel">Téléphone</label>
+          <input type="tel" id="tel" name="tel" placeholder="06 00 00 00 00" autocomplete="tel">
+        </div>
+      </div>
+
+      <div class="divider-label"><span>Votre cheval</span></div>
+
+      <div class="row">
+        <div class="field">
+          <label for="cheval">Nom du cheval</label>
+          <input type="text" id="cheval" name="cheval" placeholder="Tornado">
+        </div>
+        <div class="field">
+          <label for="niveau">Niveau CSO</label>
+          <select id="niveau" name="niveau">
+            <option value="">— Choisir —</option>
+            <option>Débutant (80 cm)</option>
+            <option>Club (90–100 cm)</option>
+            <option>Amateur (1m–1m10)</option>
+            <option>1m15 – 1m20</option>
+            <option>1m25 – 1m30</option>
+            <option>1m35 et +</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="message">Message (questions, dates souhaitées…)</label>
+        <textarea id="message" name="message" placeholder="Je souhaite participer au stage de juillet…"></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit" id="btn">Envoyer ma demande</button>
+    </form>
+
+    <div class="alert alert-success" id="alert-ok">
+      <div class="alert-icon">✓</div>
+      <strong>Demande envoyée !</strong>
+      <p>Alice et Emmanuelle ont reçu votre demande et vous répondront rapidement.<br>Pensez à vérifier vos spams si vous ne recevez pas de réponse sous 48h.</p>
+    </div>
+
+    <div class="alert alert-error" id="alert-err">
+      <div class="alert-icon">✕</div>
+      <strong>Erreur d'envoi</strong>
+      <p id="err-detail">Une erreur s'est produite. Veuillez réessayer ou contacter alice.moranval@gmail.com directement.</p>
+    </div>
+  </div>
+</main>
+
+<footer>alice.moranval.com</footer>
+
+<script>
+(function () {
+  var MJ_KEY    = '7ee5af07aaf4fa279e467725d46a8cff';
+  var MJ_SECRET = '92ad2205b09e6d9f6b39416a9d2104fb';
+
+  var form    = document.getElementById('form');
+  var btn     = document.getElementById('btn');
+  var alertOk = document.getElementById('alert-ok');
+  var alertErr= document.getElementById('alert-err');
+
+  function val(id) { return document.getElementById(id).value.trim(); }
+
+  function setError(fieldId, errId, show) {
+    document.getElementById(fieldId).classList.toggle('error', show);
+    document.getElementById(errId).classList.toggle('show', show);
+  }
+
+  function validate() {
+    var ok = true;
+    var prenom = val('prenom'), nom = val('nom'), email = val('email');
+    if (!prenom) { setError('prenom', 'err-prenom', true); ok = false; } else { setError('prenom', 'err-prenom', false); }
+    if (!nom)    { setError('nom',    'err-nom',    true); ok = false; } else { setError('nom',    'err-nom',    false); }
+    var emailOk = email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    setError('email', 'err-email', !emailOk);
+    if (!emailOk) ok = false;
+    return ok;
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    /* honeypot */
+    if (form.querySelector('[name="website"]').value) return;
+
+    if (!validate()) return;
+
+    var prenom  = val('prenom');
+    var nom     = val('nom');
+    var email   = val('email');
+    var tel     = val('tel');
+    var cheval  = val('cheval');
+    var niveau  = document.getElementById('niveau').value;
+    var message = val('message');
+
+    var corps =
+      'Bonjour Alice et Emmanuelle,\n\n' +
+      'Nouvelle demande d\'inscription au stage équestre des 25 & 26 juillet 2026.\n\n' +
+      '— COORDONNÉES —\n' +
+      'Prénom : ' + prenom + '\n' +
+      'Nom : ' + nom + '\n' +
+      'Email : ' + email + '\n' +
+      'Téléphone : ' + (tel || 'non renseigné') + '\n\n' +
+      '— CHEVAL —\n' +
+      'Nom du cheval : ' + (cheval || 'non renseigné') + '\n' +
+      'Niveau CSO : ' + (niveau || 'non renseigné') + '\n\n' +
+      '— MESSAGE —\n' +
+      (message || 'Aucun message.') + '\n\n' +
+      'Cordialement,\n' + prenom + ' ' + nom;
+
+    btn.disabled = true;
+    btn.textContent = 'Envoi en cours…';
+
+    fetch('https://api.mailjet.com/v3.1/send', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Basic ' + btoa(MJ_KEY + ':' + MJ_SECRET)
+      },
+      body: JSON.stringify({
+        Messages: [{
+          From: { Email: 'alice.moranval@gmail.com', Name: 'Formulaire Stage AMV' },
+          To: [
+            { Email: 'alice.moranval@gmail.com', Name: 'Alice Moranval-Vincent' },
+            { Email: 'emma@moranval.com',        Name: 'Emmanuelle Moranval-Vincent' }
+          ],
+          ReplyTo: { Email: email, Name: prenom + ' ' + nom },
+          Subject: 'Inscription stage 25-26 juillet 2026 — ' + prenom + ' ' + nom,
+          TextPart: corps
+        }]
+      })
+    })
+    .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, data: d }; }); })
+    .then(function (res) {
+      if (res.ok && res.data.Messages && res.data.Messages[0].Status === 'success') {
+        form.style.display = 'none';
+        alertOk.classList.add('show');
+      } else {
+        throw new Error((res.data.Messages && res.data.Messages[0].Errors && res.data.Messages[0].Errors[0].ErrorMessage) || 'Erreur inconnue');
+      }
+    })
+    .catch(function (err) {
+      var detail = 'Erreur : ' + (err.message || 'inconnue') + ' — Ouvrez la console du navigateur (F12 → Console) pour plus de détails.';
+      document.getElementById('err-detail').textContent = detail;
+      alertErr.classList.add('show');
+      console.error('Mailjet fetch error:', err);
+      btn.disabled = false;
+      btn.textContent = 'Envoyer ma demande';
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
