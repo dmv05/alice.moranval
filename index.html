@@ -4,6 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alice Moranval-Vincent — Cavalière Professionnelle CSO</title>
+<meta name="description" content="Alice Moranval-Vincent, cavalière professionnelle de saut d'obstacles (CSI 3★, 1m40), coach DEJEPS en Auvergne et Hautes-Alpes. Découvrez son palmarès, son agenda de compétitions, ses chevaux à vendre et ses stages.">
+<link rel="canonical" href="https://alice.moranval.com/">
+<meta name="author" content="Alice Moranval-Vincent">
+<meta name="robots" content="index, follow">
+<!-- Open Graph (partage Facebook, Instagram, WhatsApp, LinkedIn) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Alice Moranval-Vincent — Cavalière Professionnelle CSO">
+<meta property="og:description" content="Cavalière professionnelle de saut d'obstacles (CSI 3★, 1m40), coach DEJEPS. Palmarès, agenda, chevaux à vendre et stages.">
+<meta property="og:url" content="https://alice.moranval.com/">
+<meta property="og:image" content="https://alice.moranval.com/alice-portrait.png">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Alice Moranval-Vincent">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Alice Moranval-Vincent — Cavalière Professionnelle CSO">
+<meta name="twitter:description" content="Cavalière professionnelle de saut d'obstacles (CSI 3★, 1m40), coach DEJEPS. Palmarès, agenda, chevaux à vendre et stages.">
+<meta name="twitter:image" content="https://alice.moranval.com/alice-portrait.png">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%234A3728'/%3E%3Ctext x='50' y='67' font-family='Georgia,serif' font-size='38' font-weight='bold' fill='%23C4923A' text-anchor='middle'%3EAMV%3C/text%3E%3C/svg%3E">
 <style>
@@ -103,12 +120,12 @@
     flex-shrink: 0;
     border: 2px solid var(--gold-light);
   }
-  .hero-name {
+  h1.hero-name {
     font-family: 'Cormorant Garamond', serif;
     font-size: 21px;
     font-weight: 600;
     color: var(--earth);
-    margin-bottom: 2px;
+    margin: 0 0 2px 0;
     line-height: 1.2;
   }
   .hero-title { font-size: 12px; color: var(--bark); margin-bottom: 10px; letter-spacing: 0.3px; }
@@ -159,20 +176,20 @@
   }
   .stat {
     flex: 1;
-    padding: 14px 6px;
+    padding: 14px 10px;
     text-align: center;
     border-right: 1px solid var(--sand);
   }
   .stat:last-child { border-right: none; }
   .stat-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 600;
     color: var(--earth);
     line-height: 1;
     margin-bottom: 3px;
   }
-  .stat-label { font-size: 8px; color: var(--bark); text-transform: uppercase; letter-spacing: 0.5px; }
+  .stat-label { font-size: 9px; color: var(--bark); text-transform: uppercase; letter-spacing: 0.5px; }
 
   /* SECTION HEADER */
   .section-header {
@@ -295,6 +312,41 @@
 
   /* VIDEO */
   .video-block { padding: 0 20px 20px; }
+  .video-placeholder {
+    height: 180px;
+    background: var(--earth);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .video-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(196,146,58,0.3), transparent);
+  }
+  .play-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    border: 2px solid rgba(255,255,255,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+  .play-btn svg { width: 18px; height: 18px; margin-left: 3px; }
+  .video-label { font-size: 12px; color: rgba(255,255,255,0.6); z-index: 1; }
+  .video-meta { padding: 10px 0 0; }
+  .video-title { font-size: 13px; font-weight: 500; color: var(--earth); }
+  .video-sub { font-size: 11px; color: var(--bark); margin-top: 2px; }
 
   /* FOOTER */
   footer {
@@ -330,7 +382,7 @@
       <a href="#palmares">Palmarès</a>
       <a href="#agenda">Agenda</a>
       <a href="#vente">Vente</a>
-     <a href="stages.html" target="_blank" rel="noopener noreferrer">Stages</a>
+      <a href="stages.html">Stages</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -341,21 +393,27 @@
       <img src="alice-portrait.png" alt="Alice Moranval-Vincent" onerror="this.parentElement.innerHTML='<div class=\'hero-avatar-fallback\'>AMV</div>'">
     </div>
     <div>
-      <div class="hero-name">Alice Moranval-Vincent</div>
+      <h1 class="hero-name">Alice Moranval-Vincent</h1>
       <div class="hero-title">Cavalière Professionnelle · Saut d'obstacles · Hautes-Alpes</div>
       <div class="tags">
         <span class="tag tag-gold">CSI 3★</span>
         <span class="tag tag-gold">1m40</span>
         <span class="tag tag-green">DEJEPS</span>
-        <span class="tag tag-gray">Auvergne-Rhône-Alpes</span>
+        <span class="tag tag-gray">Auvergne-Rhone-Alpes</span>
       </div>
       <div class="social-row">
+        <!-- Instagram -->
         <a href="https://www.instagram.com/alicemv.cavaliere" target="_blank" class="social-btn" title="Instagram">
           <svg viewBox="0 0 24 24" fill="none" stroke="#C13584" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#C13584" stroke="none"/></svg>
         </a>
+        <!-- Facebook -->
         <a href="https://www.facebook.com/alice.moranval" target="_blank" class="social-btn" title="Facebook">
           <svg viewBox="0 0 24 24" fill="#1877F2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
         </a>
+        <!-- YouTube — masqué si pas de lien -->
+        <!-- <a href="#" target="_blank" class="social-btn" title="YouTube">
+          <svg viewBox="0 0 24 24" fill="#FF0000"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+        </a> -->
         <a href="mailto:alice.moranval@gmail.com" class="contact-pill">Contacter</a>
       </div>
     </div>
@@ -368,7 +426,7 @@
     <div class="stat"><div class="stat-num">DEJEPS</div><div class="stat-label">Coaching</div></div>
     <div class="stat"><div class="stat-num">Permis PL</div><div class="stat-label">Transport</div></div>
     <div class="stat">
-      <a href="https://drive.google.com/file/d/1KJTwz6SlydOymg48SjpENcpHz8WtMp3U/view?usp=sharing" target="_blank" rel="noopener" style="text-decoration:none; display:flex; flex-direction:column; align-items:center; gap:4px;">
+      <a href="competition-alice-moranval-vincent.pdf" target="_blank" rel="noopener" style="text-decoration:none; display:flex; flex-direction:column; align-items:center; gap:4px;">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/>
         </svg>
@@ -417,6 +475,14 @@
     <div class="section-header">
       <div class="section-title">Agenda des compétitions</div>
     </div>
+       <div class="agenda-item">
+        <div class="agenda-date-box"><div class="agenda-day">15-17</div><div class="agenda-month">MAI</div></div>
+        <div>
+          <div class="agenda-event">GRAND NATIONAL FFE CSo National Pro 2 et amateurs</div>
+          <div class="agenda-lieu">Pompadour Cité du Cheval  </div>
+          <span class="badge badge-green">Inscrite</span>
+        </div>
+               </div>
     <div class="agenda-list">
       <div class="agenda-item">
         <div class="agenda-date-box"><div class="agenda-day">14-15</div><div class="agenda-month">Avril</div></div>
@@ -425,14 +491,7 @@
           <div class="agenda-lieu">Pompadour Cité du Cheval · Jeunes Chevaux</div>
           <span class="badge badge-green">Inscrite</span>
         </div>
-      </div>
-      <div class="agenda-item">
-        <div class="agenda-date-box"><div class="agenda-day">15-17</div><div class="agenda-month">Mai</div></div>
-        <div>
-          <div class="agenda-event">Grand National FFE — CSO National Pro 2 et amateurs</div>
-          <div class="agenda-lieu">Pompadour Cité du Cheval</div>
-          <span class="badge badge-green">Inscrite</span>
-        </div>
+
       </div>
     </div>
   </div>
@@ -457,9 +516,9 @@
 
   <!-- VIDEO -->
   <div class="section-header">
-    <div class="section-title">Vidéos</div>
+    <div class="section-title">Vidéo à la une</div>
   </div>
-  <div class="video-block">
+<div class="video-block">
     <div style="position:relative; padding-bottom:56.25%; border-radius:10px; overflow:hidden; margin-bottom:16px;">
       <iframe style="position:absolute;inset:0;width:100%;height:100%;border:none;" src="https://www.youtube.com/embed/THIj_MKpwYU" allowfullscreen></iframe>
     </div>
@@ -520,7 +579,7 @@
   <!-- FOOTER -->
   <footer id="contact">
     <p>Alice Moranval-Vincent · Cavalière Professionnelle CSO</p>
-    <p>Auvergne et Hautes-Alpes, France</p>
+    <p>Hautes-Alpes, France</p>
     <a href="mailto:alice.moranval@gmail.com" class="footer-contact">Envoyer un message</a>
   </footer>
 
